@@ -1,38 +1,46 @@
+import { SOCIAL_LINKS } from "./socialLinks";
+
+const F = "'SuisseIntl', 'Inter', sans-serif";
+
+function FooterPill({ label, href }: { label: string; href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center rounded-full border text-[#F8F8F6] transition-colors duration-300 hover:bg-[#F8F8F6] hover:text-[#151515]"
+      style={{
+        borderColor: "rgba(248,248,246,0.25)",
+        padding: "14px 32px",
+        minWidth: 96,
+        height: 50,
+        fontFamily: F,
+        fontWeight: 400,
+        fontSize: 14,
+        lineHeight: "20px",
+        letterSpacing: "1.4px",
+        textTransform: "uppercase",
+      }}
+    >
+      {label}
+    </a>
+  );
+}
+
 export function Footer() {
   return (
-    <footer className="py-10 md:py-12">
-      <div className="max-w-[1280px] mx-auto px-8 md:px-12 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p
-          className="text-[#F8F8F6]/25"
-          style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontSize: 13, fontWeight: 300 }}
-        >
-          Зырянов Елисей
-        </p>
+    <footer className="flex flex-row justify-end items-center flex-wrap gap-4" style={{ padding: 48 }}>
+      <p
+        className="text-[#F8F8F6]/25 mr-auto"
+        style={{ fontFamily: F, fontSize: 13, fontWeight: 300 }}
+      >
+        Зырянов Елисей · Продуктовый дизайнер · {new Date().getFullYear()}
+      </p>
 
-        <p
-          className="text-[#F8F8F6]/15"
-          style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontSize: 12, fontWeight: 300 }}
-        >
-          Продуктовый дизайнер · {new Date().getFullYear()}
-        </p>
-
-        <div className="flex items-center gap-5">
-          {[
-            { label: "TG", href: "https://t.me/" },
-            { label: "Почта", href: "mailto:elisey@example.com" },
-            { label: "Резюме", href: "#" },
-          ].map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="text-[#F8F8F6]/25 hover:text-[#F8F8F6]/70 transition-colors duration-300 group relative"
-              style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontSize: 12, letterSpacing: "0.12em" }}
-            >
-              {link.label}
-              <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-[#F8F8F6]/50 transition-all duration-300 group-hover:w-full" />
-            </a>
-          ))}
-        </div>
+      <div className="flex flex-row items-center" style={{ gap: 12 }}>
+        {SOCIAL_LINKS.map((link) => (
+          <FooterPill key={link.label} label={link.label} href={link.href} />
+        ))}
       </div>
     </footer>
   );

@@ -1,5 +1,9 @@
 import { motion } from "motion/react";
 import { ScrollReveal, StaggerContainer, staggerItem } from "./ScrollReveal";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import imgSea from "figma:asset/faacb94587baa44180e381740482020a20b2e1e3.png";
+import imgCat from "figma:asset/fbea2ce180e539a3e321a05073139fca5c4ed8c4.png";
+import imgFriends from "figma:asset/1e5236f42a30f883d86857e1c346b0163fb1e1d6.png";
 
 const F = "'SuisseIntl', 'Inter', sans-serif";
 
@@ -73,9 +77,9 @@ export function About() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-12 gap-x-6 gap-y-12 mb-20">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12 mb-16">
           {/* Left: heading + bio */}
-          <div className="col-span-12 lg:col-span-7">
+          <div className="col-span-12 lg:col-span-6">
             <ScrollReveal delay={0.08}>
               <h2
                 className="mb-8"
@@ -119,42 +123,82 @@ export function About() {
             </ScrollReveal>
           </div>
 
-          {/* Right: stats */}
-          <div className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col justify-end gap-6">
-            {STATS.map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-              >
-                <p
-                  style={{
-                    fontFamily: F,
-                    fontSize: "clamp(28px, 3.5vw, 40px)",
-                    fontWeight: 400,
-                    lineHeight: 1,
-                    color: "#f8f8f6",
-                    marginBottom: 4,
-                  }}
+          {/* Right: photo collage — big photo on top, two small below */}
+          <div className="col-span-12 lg:col-span-5 lg:col-start-8">
+            <ScrollReveal delay={0.1}>
+              <div className="flex flex-col" style={{ gap: 10 }}>
+                <div
+                  className="w-full overflow-hidden"
+                  style={{ borderRadius: 16, aspectRatio: "4/3" }}
                 >
-                  {s.value}
-                </p>
-                <p
-                  style={{
-                    fontFamily: F,
-                    fontSize: 13,
-                    fontWeight: 300,
-                    color: "rgba(248,248,246,0.4)",
-                    lineHeight: 1.4,
-                  }}
-                >
-                  {s.label}
-                </p>
-              </motion.div>
-            ))}
+                  <ImageWithFallback
+                    src={imgSea}
+                    alt="Личное фото"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex" style={{ gap: 10 }}>
+                  <div
+                    className="flex-1 overflow-hidden"
+                    style={{ borderRadius: 16, aspectRatio: "1/1" }}
+                  >
+                    <ImageWithFallback
+                      src={imgCat}
+                      alt="Личное фото с котом"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div
+                    className="flex-1 overflow-hidden"
+                    style={{ borderRadius: 16, aspectRatio: "1/1" }}
+                  >
+                    <ImageWithFallback
+                      src={imgFriends}
+                      alt="Личное фото с друзьями"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
+          {STATS.map((s, i) => (
+            <motion.div
+              key={s.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <p
+                style={{
+                  fontFamily: F,
+                  fontSize: "clamp(28px, 3.5vw, 40px)",
+                  fontWeight: 400,
+                  lineHeight: 1,
+                  color: "#f8f8f6",
+                  marginBottom: 4,
+                }}
+              >
+                {s.value}
+              </p>
+              <p
+                style={{
+                  fontFamily: F,
+                  fontSize: 13,
+                  fontWeight: 300,
+                  color: "rgba(248,248,246,0.4)",
+                  lineHeight: 1.4,
+                }}
+              >
+                {s.label}
+              </p>
+            </motion.div>
+          ))}
         </div>
 
         {/* Skill tags */}
