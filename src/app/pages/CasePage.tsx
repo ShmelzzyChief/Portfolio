@@ -179,7 +179,11 @@ export function CasePage() {
         <section className="w-full overflow-hidden">
           <ScrollReveal y={0} duration={1.2}>
             <div className="aspect-[21/9] w-full overflow-hidden bg-[#0a0a0a]">
-              
+              <ImageWithFallback
+                src={imgBanner}
+                alt="Экран продажи криптовалюты в ONIX"
+                className="w-full h-full object-cover"
+              />
             </div>
           </ScrollReveal>
         </section>
@@ -382,7 +386,7 @@ export function CasePage() {
             </ScrollReveal>
 
             <ScrollReveal className="overflow-hidden rounded-2xl mb-5 bg-[#111]">
-              
+              <ImageWithFallback src={imgBg} alt="Ключевые экраны ONIX" className="w-full object-cover" />
             </ScrollReveal>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -472,7 +476,7 @@ export function CasePage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[imgImageCard, imgContainer, imgImage561, imgImage562].map((img, i) => (
                 <ScrollReveal key={i} delay={i * 0.06} className="overflow-hidden rounded-xl bg-[#111]">
-                  
+                  <ImageWithFallback src={img} alt={`UI-kit ${i + 1}`} className="w-full object-cover" />
                 </ScrollReveal>
               ))}
             </div>
@@ -487,15 +491,26 @@ export function CasePage() {
             </ScrollReveal>
 
             <div className="grid grid-cols-12 gap-5 md:gap-6 items-end mb-6">
-              <ScrollReveal className="col-span-12 md:col-span-8 overflow-hidden rounded-2xl bg-[#111]">
-                
+              <ScrollReveal className="col-span-12 md:col-span-8 overflow-hidden rounded-2xl bg-[#111] relative" style={{ aspectRatio: "4/3" }}>
+                <ImageWithFallback src={imgBanner1} alt="Our ideology — ONIX" className="w-full h-full object-cover" />
+                <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
+                  <p className="text-[#F8F8F6]/40 text-xs tracking-[0.3em] uppercase mb-3" style={{ fontFamily: FONT }}>
+                    Our ideology
+                  </p>
+                  <p
+                    className="text-[#F8F8F6] max-w-[380px]"
+                    style={{ fontFamily: FONT, fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 500, lineHeight: 1.25 }}
+                  >
+                    We believe in financial freedom of all
+                  </p>
+                </div>
               </ScrollReveal>
               <div className="col-span-12 md:col-span-4 flex flex-col gap-5">
                 <ScrollReveal delay={0.08} className="overflow-hidden rounded-2xl bg-[#111]">
                   <ImageWithFallback src={imgMan} alt="Пользователь" className="w-full object-cover" />
                 </ScrollReveal>
                 <ScrollReveal delay={0.14} className="overflow-hidden rounded-2xl bg-[#111]">
-                  
+                  <ImageWithFallback src={imgBg1} alt="Брендинг ONIX" className="w-full object-cover" />
                 </ScrollReveal>
               </div>
             </div>

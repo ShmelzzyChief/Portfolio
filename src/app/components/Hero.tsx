@@ -1,22 +1,13 @@
 import { motion } from "motion/react";
 import { MagneticButton } from "./MagneticButton";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { SOCIAL_LINKS } from "./socialLinks";
 import imgPortrait from "figma:asset/b2c8425364794ec88c37d3951c0b730958289738.png";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
 const F = "'SuisseIntl', 'Inter', sans-serif";
 
-const BUTTONS = [
-  {
-    label: "CV",
-    href: "https://drive.google.com/file/d/1QfM8immOJUsMqSR5H2tugOH6BU6Q5jHx/view?usp=sharing",
-  },
-  { label: "TG", href: "https://t.me/Shmelzzychief" },
-  {
-    label: "Блог",
-    href: "https://www.threads.com/@design.inmymind?igshid=NTc4MTIwNjQ2YQ%3D%3D",
-  },
-];
+const BUTTONS = SOCIAL_LINKS;
 
 function HeroButton({
   label,
