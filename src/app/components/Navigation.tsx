@@ -5,9 +5,9 @@ import { Link } from "react-router";
 const FONT = "'SuisseIntl', 'Inter', sans-serif";
 
 const NAV_LINKS = [
-  { label: "Обо мне", href: "/#about" },
-  { label: "Работы", href: "/#work" },
-  { label: "Контакты", href: "/#contact" },
+  { label: "Обо мне", href: "#about" },
+  { label: "Работы", href: "#work" },
+  { label: "Контакты", href: "#contact" },
 ];
 
 function NavLink({ href, children }: { href: string; children: string }) {
