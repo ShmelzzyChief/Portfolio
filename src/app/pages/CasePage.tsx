@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ScrollReveal } from "../components/ScrollReveal";
@@ -64,6 +65,94 @@ function SectionHeading({ children }: { children: ReactNode }) {
 
 function Divider() {
   return <div className="h-px bg-[#F8F8F6]/[0.06] my-0" />;
+}
+
+const problems = [
+  {
+    title: "Проблема 1",
+    body: "Новые пользователи не понимали, что происходит с их деньгами внутри крипто-кошелька — переводы, комиссии и курс выглядели как «чёрный ящик».",
+    hypothesis: "Если показать баланс и операции в привычном банковском формате, доверие и повторные заходы вырастут.",
+    goal: "Свести первый вход в приложение к тем же трём шагам, что и в любом финтех-приложении: узнать баланс, положить деньги, снять деньги.",
+  },
+  {
+    title: "Проблема 2",
+    body: "Пополнение требовало выбора сети, токена и подтверждения транзакции — три экрана, которые пугали людей без опыта в крипте.",
+    hypothesis: "Скрыв технические детали за одной кнопкой «Пополнить» с автоподбором сети, мы уберём точки отказа.",
+    goal: "Сократить путь между «хочу положить деньги» и «деньги на счету» до одного экрана.",
+  },
+  {
+    title: "Проблема 3",
+    body: "Курс местной валюты падал быстрее, чем люди успевали среагировать, а перевод в доллары ощущался рискованным и непонятным.",
+    hypothesis: "Явный, live-обновляемый курс и объяснение «почему доллары стабильнее» снизят тревожность при первом переводе.",
+    goal: "Дать пользователю понять в первые 12 минут использования, что его сбережения перестали обесцениваться.",
+  },
+];
+
+function ProblemsSection() {
+  const [active, setActive] = useState(0);
+
+  return (
+    <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+      <div className="max-w-[1280px] mx-auto px-8 md:px-12">
+        <ScrollReveal className="mb-14">
+          <SectionLabel>Проблемы</SectionLabel>
+          <SectionHeading>
+            Что мешало
+            <br />
+            <span className="italic">пользователям доверять</span>
+          </SectionHeading>
+        </ScrollReveal>
+
+        <ScrollReveal delay={0.1} className="flex flex-wrap gap-3 mb-10">
+          {problems.map((p, i) => (
+            <button
+              key={p.title}
+              onClick={() => setActive(i)}
+              className="px-4 py-2.5 rounded-full text-sm transition-colors duration-300"
+              style={{
+                fontFamily: FONT,
+                fontWeight: 500,
+                color: active === i ? ACCENT : "rgba(248,248,246,0.45)",
+                backgroundColor: active === i ? `${ACCENT}15` : "rgba(248,248,246,0.04)",
+                border: `1px solid ${active === i ? `${ACCENT}30` : "rgba(248,248,246,0.08)"}`,
+              }}
+            >
+              {p.title}
+            </button>
+          ))}
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {[
+            { label: "Что происходило", text: problems[active].body },
+            { label: "Гипотеза", text: problems[active].hypothesis },
+            { label: "Тогда моя цель", text: problems[active].goal },
+          ].map((block) => (
+            <motion.div
+              key={block.label + active}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="p-6 md:p-8 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl h-full"
+            >
+              <p
+                className="text-[#F8F8F6]/25 text-xs tracking-[0.2em] uppercase mb-4"
+                style={{ fontFamily: FONT }}
+              >
+                {block.label}
+              </p>
+              <p
+                className="text-[#F8F8F6]/70"
+                style={{ fontFamily: FONT, fontSize: 15, fontWeight: 300, lineHeight: 1.7 }}
+              >
+                {block.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export function CasePage() {
@@ -281,6 +370,9 @@ export function CasePage() {
           </div>
         </section>
 
+        {/* ─── PROBLEMS ─── */}
+        <ProblemsSection />
+
         {/* ─── DESIGN PROCESS ─── */}
         <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
           <div className="max-w-[1280px] mx-auto px-8 md:px-12">
@@ -447,8 +539,70 @@ export function CasePage() {
                   что крипто-интерфейс ощущается «понятным и безопасным»
                   — как обычное банковское приложение.
                 </p>
+
+                <div className="mt-6 pt-6 border-t border-[#F8F8F6]/[0.06]">
+                  <p className="text-[#F8F8F6]/30 text-xs tracking-[0.2em] uppercase mb-3" style={{ fontFamily: FONT }}>
+                    Методы
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      "A/B-тест: light-версия онбординга vs. полноценная версия приложения",
+                      "Анализ поведения пользователей по пути к первому пополнению",
+                      "Модерируемые интервью с группой из 7 испытуемых",
+                    ].map((m) => (
+                      <li
+                        key={m}
+                        className="text-[#F8F8F6]/45 flex items-start gap-2"
+                        style={{ fontFamily: FONT, fontSize: 14, fontWeight: 300, lineHeight: 1.6 }}
+                      >
+                        <span style={{ color: ACCENT }}>—</span>
+                        {m}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </ScrollReveal>
+          </div>
+        </section>
+
+        {/* ─── CONCLUSIONS ─── */}
+        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
+            <ScrollReveal className="mb-14">
+              <SectionLabel>Выводы</SectionLabel>
+              <SectionHeading>
+                Что мы поняли
+                <br />
+                <span className="italic">в итоге</span>
+              </SectionHeading>
+            </ScrollReveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <ScrollReveal className="p-6 md:p-10 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl h-full">
+                <p className="text-[#F8F8F6]/25 text-xs tracking-[0.2em] uppercase mb-4" style={{ fontFamily: FONT }}>
+                  Вывод
+                </p>
+                <p className="text-[#F8F8F6]/70" style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.75 }}>
+                  Сложности пользователей были связаны не с высокой когнитивной
+                  нагрузкой, а с необходимостью принимать много решений во время
+                  сделки и с недостаточной прозрачностью процессов. Наибольший
+                  потенциал для улучшения — в автоматизации решений.
+                </p>
+              </ScrollReveal>
+
+              <ScrollReveal delay={0.1} className="p-6 md:p-10 rounded-2xl h-full" style={{ backgroundColor: `${ACCENT}12`, border: `1px solid ${ACCENT}30` }}>
+                <p className="text-xs tracking-[0.2em] uppercase mb-4" style={{ fontFamily: FONT, color: ACCENT }}>
+                  Что получилось
+                </p>
+                <p className="text-[#F8F8F6]/85" style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.75 }}>
+                  Снизили когнитивную нагрузку за счёт упрощения интерфейсов и
+                  сокращения числа решений в процессе сделки — это уменьшило
+                  количество ошибок, сделало опыт предсказуемее и снизило отток
+                  пользователей на этапе настройки.
+                </p>
+              </ScrollReveal>
+            </div>
           </div>
         </section>
 
