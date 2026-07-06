@@ -158,562 +158,489 @@ function ProblemsSection() {
 export function CasePage() {
   return (
     <>
-      <main>
-        {/* ─── HERO ─── */}
-        <section className="relative min-h-[85vh] flex flex-col justify-end overflow-hidden pt-[64px]">
-          <div className="absolute inset-0">
-            <ImageWithFallback
-              src={imgBgCity}
-              alt=""
-              className="w-full h-full object-cover opacity-20"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-[#151515]/75 to-[#151515]/40" />
-          </div>
-
-          <div className="relative max-w-[1280px] mx-auto px-8 md:px-12 w-full pb-20 md:pb-28 pt-28">
-            {/* Back */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-12"
-            >
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 text-[#F8F8F6]/40 hover:text-[#F8F8F6]/80 text-sm tracking-wide transition-colors duration-300 group"
-                style={{ fontFamily: FONT }}
-              >
-                <span className="group-hover:-translate-x-1 transition-transform duration-300 inline-block">←</span>
-                Назад к портфолио
-              </Link>
-            </motion.div>
-
-            <div className="grid grid-cols-12 gap-6 items-end">
-              <div className="col-span-12 lg:col-span-8">
-                {/* Tag */}
-                <motion.span
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="inline-block px-3 py-1 rounded-full text-[10px] tracking-[0.2em] uppercase mb-6"
-                  style={{
-                    fontFamily: FONT,
-                    color: ACCENT,
-                    backgroundColor: `${ACCENT}15`,
-                    border: `1px solid ${ACCENT}30`,
-                  }}
-                >
-                  Light app / crypto
-                </motion.span>
-
-                <motion.h1
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.9, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  className="text-[#F8F8F6] leading-[1.0] tracking-[-0.02em] mb-6"
-                  style={{
-                    fontFamily: FONT,
-                    fontSize: "clamp(44px, 7vw, 96px)",
-                    fontWeight: 500,
-                  }}
-                >
-                  Крипто-платформа
-                  <br />
-                  <span className="italic" style={{ opacity: 0.55 }}>для африканцев</span>
-                </motion.h1>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.65 }}
-                  className="text-[#F8F8F6]/50 max-w-[560px]"
-                  style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.75 }}
-                >
-                  ONIX — приложение для тех, кто больше не хочет смотреть, как
-                  их сбережения превращаются в пыль из-за девальвации местной валюты.
-                </motion.p>
-              </div>
-
-              <div className="col-span-12 lg:col-span-4 lg:flex lg:items-end lg:justify-end">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.75 }}
-                  className="flex flex-wrap gap-3"
-                >
-                  {[
-                    { k: "Роль", v: "Лид дизайнер" },
-                    { k: "Команда", v: "1 дизайнер · 4 разраб." },
-                    { k: "Срок", v: "12 месяцев" },
-                  ].map((item) => (
-                    <div
-                      key={item.k}
-                      className="px-3 py-2 bg-[#F8F8F6]/[0.04] border border-[#F8F8F6]/[0.08] rounded-xl"
-                    >
-                      <p className="text-[#F8F8F6]/30" style={{ fontFamily: FONT, fontSize: 10, letterSpacing: "0.1em" }}>
-                        {item.k}
-                      </p>
-                      <p className="text-[#F8F8F6]" style={{ fontFamily: FONT, fontSize: 13, fontWeight: 500 }}>
-                        {item.v}
-                      </p>
-                    </div>
-                  ))}
-                </motion.div>
-              </div>
+<main>
+  <!-- ===== HERO ===== -->
+  <section class="relative min-h-[85vh] flex flex-col justify-end overflow-hidden pt-[64px]">
+    <div class="absolute inset-0">
+      <img src="/Portfolio/assets/cases/onix/onix-hero.png" alt="ONIX — крипто-платформа" class="w-full h-full object-cover opacity-20">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#151515] via-[#151515]/75 to-[#151515]/40"></div>
+    </div>
+    <div class="relative max-w-[1280px] mx-auto px-8 md:px-12 w-full pb-20 md:pb-28 pt-28">
+      <div class="mb-12">
+        <a class="inline-flex items-center gap-2 text-[#F8F8F6]/40 hover:text-[#F8F8F6]/80 text-sm tracking-wide transition-colors duration-300 group" href="/Portfolio/" style="font-family: Inter, sans-serif;">
+          <span class="group-hover:-translate-x-1 transition-transform duration-300 inline-block">←</span>Назад к портфолио
+        </a>
+      </div>
+      <div class="grid grid-cols-12 gap-6 items-end">
+        <div class="col-span-12 lg:col-span-8">
+          <span class="inline-block px-3 py-1 rounded-full text-[10px] tracking-[0.2em] uppercase mb-6" style="font-family: Inter, sans-serif; color: rgb(219, 253, 4); background-color: rgba(219, 253, 4, 0.082); border: 1px solid rgba(219, 253, 4, 0.19);">Light app / crypto</span>
+          <h1 class="text-[#F8F8F6] leading-[1.0] tracking-[-0.02em] mb-6" style="font-family: Inter, sans-serif; font-size: clamp(44px, 7vw, 96px); font-weight: 500;">
+            Крипто-платформа<br><span class="italic" style="opacity: 0.55;">для африканцев</span>
+          </h1>
+          <p class="text-[#F8F8F6]/50 max-w-[560px]" style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.75;">
+            ONIX — это приложение для тех африканцев, которые больше не хотят смотреть, как их сбережения превращаются в пыль из-за бешеной девальвации местной валюты
+          </p>
+        </div>
+        <div class="col-span-12 lg:col-span-4 lg:flex lg:items-end lg:justify-end">
+          <div class="flex flex-wrap gap-3">
+            <div class="px-3 py-2 bg-[#F8F8F6]/[0.04] border border-[#F8F8F6]/[0.08] rounded-xl">
+              <p class="text-[#F8F8F6]/30" style="font-family: Inter, sans-serif; font-size: 10px; letter-spacing: 0.1em;">Роль</p>
+              <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500;">Лид дизайнер</p>
+            </div>
+            <div class="px-3 py-2 bg-[#F8F8F6]/[0.04] border border-[#F8F8F6]/[0.08] rounded-xl">
+              <p class="text-[#F8F8F6]/30" style="font-family: Inter, sans-serif; font-size: 10px; letter-spacing: 0.1em;">Команда</p>
+              <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500;">1 дизайнер · 4 разраб.</p>
+            </div>
+            <div class="px-3 py-2 bg-[#F8F8F6]/[0.04] border border-[#F8F8F6]/[0.08] rounded-xl">
+              <p class="text-[#F8F8F6]/30" style="font-family: Inter, sans-serif; font-size: 10px; letter-spacing: 0.1em;">Срок</p>
+              <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 500;">12 месяцев</p>
             </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        {/* ─── BANNER ─── */}
-        <section className="w-full overflow-hidden">
-          <ScrollReveal y={0} duration={1.2}>
-            <div className="aspect-[21/9] w-full overflow-hidden bg-[#0a0a0a]">
-              <ImageWithFallback
-                src={imgBanner}
-                alt="Экран продажи криптовалюты в ONIX"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </ScrollReveal>
-        </section>
+  <!-- ===== WIDE HERO IMAGE ===== -->
+  <section class="w-full overflow-hidden">
+    <div class="aspect-[21/9] w-full overflow-hidden bg-[#0a0a0a]">
+      <img src="/Portfolio/assets/cases/onix/onix-hero.png" alt="ONIX — продажа криптовалюты" class="w-full h-full object-cover">
+    </div>
+  </section>
 
-        {/* ─── KEY METRICS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-              {[
-                { value: "68%", label: "Молодёжь 18–35, впервые имеющая сбережения" },
-                { value: "$285", label: "Средний пользователь хранит" },
-                { value: "2 Млн", label: "Зарегистрированных пользователей" },
-                { value: "12 мин", label: "Каждые 12 минут кто-то сохраняет в долларах" },
-              ].map((m, i) => (
-                <motion.div
-                  key={m.label}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  <p
-                    className="mb-2"
-                    style={{
-                      fontFamily: FONT,
-                      fontSize: "clamp(32px, 4vw, 56px)",
-                      fontWeight: 500,
-                      lineHeight: 1,
-                      color: ACCENT,
-                    }}
-                  >
-                    {m.value}
-                  </p>
-                  <p className="text-[#F8F8F6]/35" style={{ fontFamily: FONT, fontSize: 13, fontWeight: 300, lineHeight: 1.5 }}>
-                    {m.label}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+  <!-- ===== STATS ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <div>
+          <p class="mb-2" style="font-family: Inter, sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 500; line-height: 1; color: rgb(219, 253, 4);">68%</p>
+          <p class="text-[#F8F8F6]/35" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; line-height: 1.5;">Люди 18–35 лет, которые раньше никогда не имели сбережений</p>
+        </div>
+        <div>
+          <p class="mb-2" style="font-family: Inter, sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 500; line-height: 1; color: rgb(219, 253, 4);">$ 285</p>
+          <p class="text-[#F8F8F6]/35" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; line-height: 1.5;">Средний пользователь хранит</p>
+        </div>
+        <div>
+          <p class="mb-2" style="font-family: Inter, sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 500; line-height: 1; color: rgb(219, 253, 4);">2 Млн</p>
+          <p class="text-[#F8F8F6]/35" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; line-height: 1.5;">Зарегистрированных пользователей</p>
+        </div>
+        <div>
+          <p class="mb-2" style="font-family: Inter, sans-serif; font-size: clamp(32px, 4vw, 56px); font-weight: 500; line-height: 1; color: rgb(219, 253, 4);">12 мин</p>
+          <p class="text-[#F8F8F6]/35" style="font-family: Inter, sans-serif; font-size: 13px; font-weight: 300; line-height: 1.5;">Каждые 12 минут кто-то сохраняет в долларах</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOAL ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="grid grid-cols-12 gap-6 items-center">
+        <div class="col-span-12 lg:col-span-5">
+          <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Глобальная цель</p>
+          <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+            Crypto is as easy<br><span class="italic" style="color: rgb(219, 253, 4);">as calling a taxi</span>
+          </h2>
+        </div>
+        <div class="col-span-12 lg:col-span-6 lg:col-start-7">
+          <p class="text-[#F8F8F6]/50 leading-relaxed" style="font-family: Inter, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.8;">
+            Для многих криптовалюта до сих пор звучит как «скам» или что-то очень сложное, непонятное. Мы должны сделать криптовалюту простой — такой же, как вызов такси, превратив Web-3 кошелёк в понятное банковское приложение, с ориентиром на отечественные финтех приложения
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTERFACE / MOCKUPS ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06] overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Интерфейс</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Мобильный опыт<br><span class="italic">нового поколения</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-mockup-1.png" alt="Экран входа в ONIX" class="w-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-mockup-2.png" alt="Главный экран ONIX" class="w-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-mockup-3.png" alt="Верификация в ONIX" class="w-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-mockup-4.png" alt="Успешная регистрация в ONIX" class="w-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEMS ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Дизайн-процесс</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Проблемы<br><span class="italic">и гипотезы</span>
+        </h2>
+      </div>
+
+      <!-- Problem 1 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div>
+          <p class="text-[#DBFD04] text-sm tracking-[0.2em] uppercase mb-4" style="font-family: Inter, sans-serif;">Проблема 1</p>
+          <p class="text-[#F8F8F6] mb-6" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7;">
+            Пользователи часто уходили сразу после регистрации, не доходя до первого целевого действия, из-за чего конверсия в активного пользователя была низкой.
+          </p>
+          <div class="p-6 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl mb-6">
+            <p class="text-[#DBFD04]/60 text-xs tracking-[0.2em] uppercase mb-3" style="font-family: Inter, sans-serif;">Гипотеза</p>
+            <p class="text-[#F8F8F6]/70" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+              Если добавить обучающие stories и демо-счёт, то получится повысить доверие. А также пользователь смог бы понять механику, увидеть комиссии и риски, попробовав продукт без внесения личных сбережений
+            </p>
           </div>
-        </section>
-
-        {/* ─── GLOBAL GOAL ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <div className="grid grid-cols-12 gap-6 items-center">
-              <div className="col-span-12 lg:col-span-5">
-                <ScrollReveal>
-                  <SectionLabel>Глобальная цель</SectionLabel>
-                  <SectionHeading>
-                    Crypto is as easy
-                    <br />
-                    <span className="italic" style={{ color: ACCENT }}>as calling a taxi</span>
-                  </SectionHeading>
-                </ScrollReveal>
-              </div>
-              <div className="col-span-12 lg:col-span-6 lg:col-start-7">
-                <ScrollReveal delay={0.15}>
-                  <p className="text-[#F8F8F6]/50 leading-relaxed" style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.8 }}>
-                    Для многих криптовалюта до сих пор звучит как «скам» или
-                    что-то очень сложное. Мы должны сделать её простой — такой
-                    же, как вызов такси, превратив Web3-кошелёк в понятное
-                    банковское приложение с ориентиром на отечественные
-                    финтех-продукты.
-                  </p>
-                </ScrollReveal>
-              </div>
-            </div>
+          <div>
+            <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-2" style="font-family: Inter, sans-serif;">Тогда моя цель</p>
+            <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6;">
+              Увеличить конверсию в активного пользователя на 10–15%<br>
+              Повысить возвращаемость на 10–15%
+            </p>
           </div>
-        </section>
+        </div>
+        <div class="flex items-center justify-center">
+          <!-- SVG Frame -->
+          <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-[400px]">
+            <rect x="0.5" y="0.5" width="399" height="319" rx="16" stroke="#484848" stroke-width="1" fill="none"/>
+            <rect x="20.5" y="20.5" width="359" height="279" rx="12" stroke="#484848" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+          </svg>
+        </div>
+      </div>
 
-        {/* ─── PHONE MOCKUPS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06] overflow-hidden">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Интерфейс</SectionLabel>
-              <SectionHeading>
-                Мобильный опыт
-                <br />
-                <span className="italic">нового поколения</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[imgScreenChangeMe1, imgFrame1000003271, imgImage562, imgImage563].map((img, i) => (
-                <ScrollReveal key={i} delay={i * 0.07} className="overflow-hidden rounded-2xl bg-[#111]">
-                  <ImageWithFallback
-                    src={img}
-                    alt={`Экран приложения ${i + 1}`}
-                    className="w-full object-cover"
-                  />
-                </ScrollReveal>
-              ))}
-            </div>
+      <!-- Problem 2 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <div class="flex items-center justify-center order-2 md:order-1">
+          <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-[400px]">
+            <rect x="0.5" y="0.5" width="399" height="319" rx="16" stroke="#484848" stroke-width="1" fill="none"/>
+            <rect x="20.5" y="20.5" width="359" height="279" rx="12" stroke="#484848" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+          </svg>
+        </div>
+        <div class="order-1 md:order-2">
+          <p class="text-[#DBFD04] text-sm tracking-[0.2em] uppercase mb-4" style="font-family: Inter, sans-serif;">Проблема 2</p>
+          <p class="text-[#F8F8F6] mb-6" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7;">
+            На экранах одновременно отображалось слишком много информации, пользователи дольше принимали решения, чаще ошибались или не понимали, какой шаг сделать дальше.
+          </p>
+          <div class="p-6 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl mb-6">
+            <p class="text-[#DBFD04]/60 text-xs tracking-[0.2em] uppercase mb-3" style="font-family: Inter, sans-serif;">Гипотеза</p>
+            <p class="text-[#F8F8F6]/70" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+              Если снизить когнитивную нагрузку на пользователя и урезать некоторый функционал платформы, то пользователи станут достигать ключевого действия быстрее. А также количество ошибок и непонимания следующего действия уменьшится
+            </p>
           </div>
-        </section>
-
-        {/* ─── PROBLEMS ─── */}
-        <ProblemsSection />
-
-        {/* ─── DESIGN PROCESS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Дизайн-процесс</SectionLabel>
-              <SectionHeading>
-                Системное мышление,
-                <br />
-                <span className="italic">человеческий результат</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6">
-              {[
-                {
-                  num: "01",
-                  title: "Исследование и дискавери",
-                  desc: "24 пользовательских интервью, анализ воронки, конкурентный ресёрч. Выявлено: пользователи не доверяли интерфейсу и боялись сложности крипты.",
-                },
-                {
-                  num: "02",
-                  title: "Предположения дискавери",
-                  desc: "Сформулировали гипотезы: упрощение онбординга, банковский язык UI, фокус на доверии через визуальные сигналы безопасности.",
-                },
-                {
-                  num: "03",
-                  title: "Дизайн и итерации",
-                  desc: "8 дизайн-спринтов, 3 принципиальных разворота, 120+ экранов. Каждый флоу тестировался с реальными пользователями до выхода в релиз.",
-                },
-                {
-                  num: "04",
-                  title: "Запуск и результат",
-                  desc: "Запустили за 6 месяцев. Мониторинг через Mixpanel и Hotjar. Конверсия выросла на 68% в первом квартале после запуска.",
-                },
-              ].map((step, i) => (
-                <ScrollReveal key={step.num} delay={i * 0.07}>
-                  <div className="p-6 md:p-8 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl h-full">
-                    <p
-                      className="mb-5"
-                      style={{ fontFamily: FONT, fontSize: 28, fontWeight: 500, color: `${ACCENT}30`, lineHeight: 1 }}
-                    >
-                      {step.num}
-                    </p>
-                    <p className="text-[#F8F8F6] mb-3" style={{ fontFamily: FONT, fontSize: 15, fontWeight: 600 }}>
-                      {step.title}
-                    </p>
-                    <p className="text-[#F8F8F6]/45" style={{ fontFamily: FONT, fontSize: 14, fontWeight: 300, lineHeight: 1.7 }}>
-                      {step.desc}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
-
-            {/* Process screenshots */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <ScrollReveal className="overflow-hidden rounded-2xl aspect-[4/3] bg-[#111]">
-                <ImageWithFallback src={imgImage585} alt="Процесс дизайна" className="w-full h-full object-cover" />
-              </ScrollReveal>
-              <ScrollReveal delay={0.1} className="overflow-hidden rounded-2xl aspect-[4/3] bg-[#111]">
-                <ImageWithFallback src={imgImage586} alt="Итерации дизайна" className="w-full h-full object-cover" />
-              </ScrollReveal>
-            </div>
+          <div>
+            <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-2" style="font-family: Inter, sans-serif;">Тогда моя цель</p>
+            <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6;">
+              Разгрузить экраны примерно на 60%, убрав второстепенную информацию, чтобы снизить когнитивную нагрузку<br>
+              Повысить возвращаемость на 10–15%
+            </p>
           </div>
-        </section>
+        </div>
+      </div>
 
-        {/* ─── DISCOVERY RESULTS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Результаты дискавери</SectionLabel>
-              <SectionHeading>
-                Что мы
-                <br />
-                <span className="italic">обнаружили</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
-              {[imgImage588, imgImage4, imgImage5, imgImage579, imgImage580, imgImage589].map((img, i) => (
-                <ScrollReveal key={i} delay={i * 0.06} className="overflow-hidden rounded-xl bg-[#111]">
-                  <ImageWithFallback
-                    src={img}
-                    alt={`Результат дискавери ${i + 1}`}
-                    className="w-full object-cover"
-                  />
-                </ScrollReveal>
-              ))}
-            </div>
+      <!-- Problem 3 -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-[#DBFD04] text-sm tracking-[0.2em] uppercase mb-4" style="font-family: Inter, sans-serif;">Проблема 3</p>
+          <p class="text-[#F8F8F6] mb-6" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 400; line-height: 1.7;">
+            Пользователям сложно выбирать сделки, решение занимает много времени, вызывает сомнения и приводит к дроп-оффам на этапе выбора сделки.
+          </p>
+          <div class="p-6 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl mb-6">
+            <p class="text-[#DBFD04]/60 text-xs tracking-[0.2em] uppercase mb-3" style="font-family: Inter, sans-serif;">Гипотеза</p>
+            <p class="text-[#F8F8F6]/70" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+              Если при подборе сделки учитывать итоговую сумму «на руки», показывать пользователю лучшие варианты и объяснять, почему выбран именно этот вариант, то им будет проще принимать решение и совершать операции
+            </p>
           </div>
-        </section>
-
-        {/* ─── KEY SCREENS FULL ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Ключевые экраны</SectionLabel>
-              <SectionHeading>
-                Спроектировано
-                <br />
-                <span className="italic">для ясности</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <ScrollReveal className="overflow-hidden rounded-2xl mb-5 bg-[#111]">
-              <ImageWithFallback src={imgBg} alt="Ключевые экраны ONIX" className="w-full object-cover" />
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {[imgFrame1000004759, imgFrame1000004760, imgFrame2085661477].map((img, i) => (
-                <ScrollReveal key={i} delay={i * 0.08} className="overflow-hidden rounded-2xl bg-[#111]">
-                  <ImageWithFallback src={img} alt={`Экран ${i + 1}`} className="w-full object-cover" />
-                </ScrollReveal>
-              ))}
-            </div>
+          <div>
+            <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-2" style="font-family: Inter, sans-serif;">Тогда моя цель</p>
+            <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.6;">
+              Понизить дроп-офф рейтинг до максимально возможного
+            </p>
           </div>
-        </section>
+        </div>
+        <div class="flex items-center justify-center">
+          <svg width="100%" height="320" viewBox="0 0 400 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="max-w-[400px]">
+            <rect x="0.5" y="0.5" width="399" height="319" rx="16" stroke="#484848" stroke-width="1" fill="none"/>
+            <rect x="20.5" y="20.5" width="359" height="279" rx="12" stroke="#484848" stroke-width="1" stroke-dasharray="4 4" fill="none"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        {/* ─── RESULTS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Результат</SectionLabel>
-              <SectionHeading>
-                Измеримый
-                <br />
-                <span className="italic">эффект</span>
-              </SectionHeading>
-            </ScrollReveal>
+  <!-- ===== BRANDING ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Брендинг</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Визуальная<br><span class="italic">идентичность</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div class="overflow-hidden rounded-2xl aspect-[4/3] bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-branding-left.png" alt="Нотификация ONIX" class="w-full h-full object-cover">
+        </div>
+        <div class="overflow-hidden rounded-2xl aspect-[4/3] bg-[#111] flex items-center justify-center p-8">
+          <!-- SVG Logo Frame -->
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="200" rx="24" fill="#04452E"/>
+            <text x="100" y="115" text-anchor="middle" fill="#DBFD04" font-family="Inter, sans-serif" font-size="72" font-weight="600">O</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div className="grid grid-cols-3 gap-6 md:gap-12 mb-16">
-              {[
-                { value: "12%", label: "Рост удержания в первый месяц" },
-                { value: "50%", label: "Снижение drop-off на онбординге" },
-                { value: "99%", label: "Uptime платформы" },
-              ].map((m, i) => (
-                <ScrollReveal key={m.label} delay={i * 0.08}>
-                  <div>
-                    <p
-                      className="mb-2"
-                      style={{ fontFamily: FONT, fontSize: "clamp(36px, 5vw, 72px)", fontWeight: 500, lineHeight: 1, color: "#F8F8F6" }}
-                    >
-                      {m.value}
-                    </p>
-                    <p className="text-[#F8F8F6]/35" style={{ fontFamily: FONT, fontSize: 13, fontWeight: 300, lineHeight: 1.5 }}>
-                      {m.label}
-                    </p>
-                  </div>
-                </ScrollReveal>
-              ))}
-            </div>
+  <!-- ===== DISCOVERY RESULTS ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Результаты дискавери</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Что мы<br><span class="italic">обнаружили</span>
+        </h2>
+        <p class="text-[#F8F8F6]/50 max-w-[640px]" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; line-height: 1.7;">
+          После исследования появились идеи, как улучшить интерфейс и от каких функций нужно отказаться в пользу работоспособности и удобства:
+        </p>
+        <ul class="mt-4 text-[#F8F8F6]/50" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.8;">
+          <li>Убрать некоторые динамически меняющиеся части приложения</li>
+          <li>Подбирать лучшие сделки автоматически</li>
+          <li>Сделать сторис и демо-счёт</li>
+          <li>Реализовать понятный онбординг</li>
+          <li>Изменить флоу верификации с заменой на сторонний API</li>
+        </ul>
+      </div>
 
-            {/* NPS */}
-            <ScrollReveal>
-              <div className="p-8 md:p-10 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl">
-                <p className="text-[#F8F8F6]/30 text-xs tracking-[0.25em] uppercase mb-4" style={{ fontFamily: FONT }}>
-                  Проверка дизайна
-                </p>
-                <p className="text-[#F8F8F6] mb-3" style={{ fontFamily: FONT, fontSize: "clamp(20px, 2.5vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
-                  NPS вырос на 18 пунктов
-                </p>
-                <p className="text-[#F8F8F6]/45" style={{ fontFamily: FONT, fontSize: 15, fontWeight: 300, lineHeight: 1.7 }}>
-                  По итогам тестирования на 10 проектах. Пользователи отметили,
-                  что крипто-интерфейс ощущается «понятным и безопасным»
-                  — как обычное банковское приложение.
-                </p>
+      <!-- Main Page -->
+      <div class="mb-16">
+        <h3 class="text-[#F8F8F6] mb-2" style="font-family: Inter, sans-serif; font-size: clamp(20px, 2vw, 28px); font-weight: 500;">Главная страница</h3>
+        <p class="text-[#F8F8F6]/40 mb-6" style="font-family: Inter, sans-serif; font-size: 14px;">Что улучшилось?</p>
+        <div class="mb-6">
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            <span class="text-[#DBFD04]">Time on Task уменьшился на 30%</span> за счёт уменьшения количества доступных действий
+          </p>
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            <span class="text-[#DBFD04]">Drop-off Rate уменьшился на 12%</span>. Форма становится понятнее, на сигналы можно реагировать быстрее
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-discovery-main.png" alt="Главная страница ONIX после дискавери" class="w-full object-cover">
+        </div>
+      </div>
 
-                <div className="mt-6 pt-6 border-t border-[#F8F8F6]/[0.06]">
-                  <p className="text-[#F8F8F6]/30 text-xs tracking-[0.2em] uppercase mb-3" style={{ fontFamily: FONT }}>
-                    Методы
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "A/B-тест: light-версия онбординга vs. полноценная версия приложения",
-                      "Анализ поведения пользователей по пути к первому пополнению",
-                      "Модерируемые интервью с группой из 7 испытуемых",
-                    ].map((m) => (
-                      <li
-                        key={m}
-                        className="text-[#F8F8F6]/45 flex items-start gap-2"
-                        style={{ fontFamily: FONT, fontSize: 14, fontWeight: 300, lineHeight: 1.6 }}
-                      >
-                        <span style={{ color: ACCENT }}>—</span>
-                        {m}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </ScrollReveal>
+      <!-- Autofill -->
+      <div class="mb-16">
+        <h3 class="text-[#F8F8F6] mb-2" style="font-family: Inter, sans-serif; font-size: clamp(20px, 2vw, 28px); font-weight: 500;">Автозаполнение и закладки</h3>
+        <div class="mb-6">
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            Time on Task уменьшился на 30% за счёт уменьшения количества доступных действий
+          </p>
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            <span class="text-[#DBFD04]">Misclick rate уменьшился на 80%</span> за счёт уменьшения количества доступных действий
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-discovery-auto.png" alt="Автозаполнение в ONIX" class="w-full object-cover">
+        </div>
+      </div>
+
+      <!-- Counterparty Search -->
+      <div>
+        <h3 class="text-[#F8F8F6] mb-2" style="font-family: Inter, sans-serif; font-size: clamp(20px, 2vw, 28px); font-weight: 500;">Поиск лучших контрагентов</h3>
+        <p class="text-[#F8F8F6]/40 mb-2" style="font-family: Inter, sans-serif; font-size: 14px;">Что улучшилось?</p>
+        <div class="mb-6">
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            Время до трейда уменьшилось на 37 секунд
+          </p>
+          <p class="text-[#F8F8F6]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+            <span class="text-[#DBFD04]">NPS активных 650 пользователей увеличился на 18 пунктов</span> и выше показателя 48% после внедрения механизма автоматического подбора контрагентов
+          </p>
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111]">
+          <img src="/Portfolio/assets/cases/onix/onix-discovery-search.png" alt="Поиск контрагентов в ONIX" class="w-full object-cover">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== UI KIT ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">UI Kit</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Дизайн-система,<br><span class="italic">созданная надолго</span>
+        </h2>
+      </div>
+
+      <!-- Colors -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="p-6 rounded-2xl" style="background-color: #DBFD04;">
+          <p class="text-[#151515] text-xs mb-1" style="font-family: Inter, sans-serif;">HEX: DBFD04</p>
+          <p class="text-[#151515]/70 text-xs" style="font-family: Inter, sans-serif;">RGB: 219 253 4</p>
+        </div>
+        <div class="p-6 rounded-2xl" style="background-color: #04452E;">
+          <p class="text-[#F8F8F6] text-xs mb-1" style="font-family: Inter, sans-serif;">HEX: 04452E</p>
+          <p class="text-[#F8F8F6]/70 text-xs" style="font-family: Inter, sans-serif;">RGB: 4 69 46</p>
+        </div>
+        <div class="p-6 rounded-2xl" style="background-color: #484848;">
+          <p class="text-[#F8F8F6] text-xs mb-1" style="font-family: Inter, sans-serif;">HEX: 484848</p>
+          <p class="text-[#F8F8F6]/70 text-xs" style="font-family: Inter, sans-serif;">RGB: 72 72 72</p>
+        </div>
+        <div class="p-6 rounded-2xl" style="background-color: #FAFAFA;">
+          <p class="text-[#151515] text-xs mb-1" style="font-family: Inter, sans-serif;">HEX: FAFAFA</p>
+          <p class="text-[#151515]/70 text-xs" style="font-family: Inter, sans-serif;">RGB: 250 250 250</p>
+        </div>
+      </div>
+
+      <!-- Typography + Icons + Mockup -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <div class="p-8 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl">
+          <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-6" style="font-family: Inter, sans-serif;">Typography</p>
+          <p class="text-[#DBFD04] mb-2" style="font-family: 'SF Pro Display', Inter, sans-serif; font-size: 32px; font-weight: 500;">SF Pro Display</p>
+          <p class="text-[#F8F8F6]/70 mb-6" style="font-family: 'SF Pro Text', Inter, sans-serif; font-size: 18px;">SF Pro Text</p>
+          <p class="text-[#F8F8F6]/40 text-sm" style="font-family: 'SF Pro Text', Inter, sans-serif;">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz</p>
+          <p class="text-[#F8F8F6]/40 text-sm mt-2" style="font-family: 'SF Pro Text', Inter, sans-serif;">0123456789</p>
+        </div>
+        <div class="overflow-hidden rounded-2xl bg-[#111] p-1">
+          <img src="/Portfolio/assets/cases/onix/onix-uikit-mockup.png" alt="Мокап в UI-kit ONIX" class="w-full object-cover rounded-xl">
+        </div>
+      </div>
+
+      <!-- Icons -->
+      <div class="p-8 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl">
+        <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-6" style="font-family: Inter, sans-serif;">Iconography</p>
+        <div class="grid grid-cols-6 md:grid-cols-12 gap-6">
+          <!-- Search -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round"><circle cx="14" cy="14" r="9"/><line x1="21" y1="21" x2="28" y2="28"/></svg>
+          <!-- Lock -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="14" width="20" height="16" rx="2"/><path d="M10 14V10a6 6 0 0 1 12 0v4"/></svg>
+          <!-- Globe -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round"><circle cx="16" cy="16" r="12"/><ellipse cx="16" cy="16" rx="12" ry="5"/><line x1="4" y1="16" x2="28" y2="16"/><line x1="16" y1="4" x2="16" y2="28"/></svg>
+          <!-- Clock -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><polyline points="16,8 16,16 22,16"/></svg>
+          <!-- Document -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H8a2 2 0 0 0-2 2v20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V10l-6-6z"/><polyline points="20,4 20,10 26,10"/><line x1="12" y1="18" x2="20" y2="18"/><line x1="12" y1="22" x2="20" y2="22"/></svg>
+          <!-- Bitcoin -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><path d="M16 8v16M12 10h6M12 22h6M13 8v-2M19 8v-2M13 26v-2M19 26v-2"/></svg>
+          <!-- Ethereum -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="16,4 26,16 16,12 6,16"/><polygon points="16,28 26,18 16,22 6,18"/></svg>
+          <!-- Tether -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="12"/><line x1="12" y1="10" x2="20" y2="10"/><line x1="16" y1="10" x2="16" y2="22"/><line x1="12" y1="16" x2="20" y2="16"/></svg>
+          <!-- Chart -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="4,20 10,14 16,18 22,8 28,12"/><circle cx="22" cy="8" r="2"/></svg>
+          <!-- Download -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4v16M10 14l6 6 6-6"/><line x1="6" y1="26" x2="26" y2="26"/></svg>
+          <!-- Upload -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 28V12M10 18l6-6 6 6"/><line x1="6" y1="6" x2="26" y2="6"/></svg>
+          <!-- Arrow swap -->
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#DBFD04" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12l4-4 4 4M20 20l-4 4-4-4"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTING ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-14">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Проверка дизайна</p>
+        <h2 class="text-[#F8F8F6] leading-[1.08] tracking-[-0.02em] mb-8" style="font-family: Inter, sans-serif; font-size: clamp(28px, 3.5vw, 52px); font-weight: 500;">
+          Выводы<br><span class="italic">тестирования</span>
+        </h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <p class="text-[#F8F8F6]/70 mb-6" style="font-family: Inter, sans-serif; font-size: 15px; font-weight: 300; line-height: 1.7;">
+            Были проведены модерируемые тесты с опер группой из 7 испытуемых, замер показал, что время выполнения, количество ошибок, конверсии и NPS выросли по сравнению с замерами таких же действий, но на платформе с полноценным функционалом
+          </p>
+          <p class="text-[#F8F8F6]/40 text-xs tracking-[0.2em] uppercase mb-3" style="font-family: Inter, sans-serif;">Методы:</p>
+          <ul class="text-[#F8F8F6]/50 mb-6" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.8;">
+            <li>А/В-тест: light-app и полноценная версия приложения</li>
+            <li>Анализ поведения пользователей по пути к call to action</li>
+            <li>Опросы об удовлетворённости в работе автоматического подбора</li>
+          </ul>
+        </div>
+        <div>
+          <div class="p-6 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl mb-6">
+            <p class="text-[#DBFD04] text-sm tracking-[0.15em] uppercase mb-3" style="font-family: Inter, sans-serif;">Вывод</p>
+            <p class="text-[#F8F8F6]/70" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+              Сложности пользователей связаны не с высокой когнитивной нагрузкой. Наиболее критичными оказалась необходимость принимать множество решений во время сделки и недостаточная прозрачность процессов. Анализ показал, что наибольший потенциал для улучшения лежит в автоматизации принятия решений
+            </p>
           </div>
-        </section>
-
-        {/* ─── CONCLUSIONS ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>Выводы</SectionLabel>
-              <SectionHeading>
-                Что мы поняли
-                <br />
-                <span className="italic">в итоге</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <ScrollReveal className="p-6 md:p-10 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl h-full">
-                <p className="text-[#F8F8F6]/25 text-xs tracking-[0.2em] uppercase mb-4" style={{ fontFamily: FONT }}>
-                  Вывод
-                </p>
-                <p className="text-[#F8F8F6]/70" style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.75 }}>
-                  Сложности пользователей были связаны не с высокой когнитивной
-                  нагрузкой, а с необходимостью принимать много решений во время
-                  сделки и с недостаточной прозрачностью процессов. Наибольший
-                  потенциал для улучшения — в автоматизации решений.
-                </p>
-              </ScrollReveal>
-
-              <ScrollReveal delay={0.1} className="p-6 md:p-10 rounded-2xl h-full" style={{ backgroundColor: `${ACCENT}12`, border: `1px solid ${ACCENT}30` }}>
-                <p className="text-xs tracking-[0.2em] uppercase mb-4" style={{ fontFamily: FONT, color: ACCENT }}>
-                  Что получилось
-                </p>
-                <p className="text-[#F8F8F6]/85" style={{ fontFamily: FONT, fontSize: 16, fontWeight: 300, lineHeight: 1.75 }}>
-                  Снизили когнитивную нагрузку за счёт упрощения интерфейсов и
-                  сокращения числа решений в процессе сделки — это уменьшило
-                  количество ошибок, сделало опыт предсказуемее и снизило отток
-                  пользователей на этапе настройки.
-                </p>
-              </ScrollReveal>
-            </div>
+          <div class="p-6 bg-[#1A1A1A] border border-[#F8F8F6]/[0.07] rounded-2xl">
+            <p class="text-[#DBFD04] text-sm tracking-[0.15em] uppercase mb-3" style="font-family: Inter, sans-serif;">Что получилось</p>
+            <p class="text-[#F8F8F6]/70" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.7;">
+              Снизили когнитивную нагрузку на пользователей за счёт упрощения интерфейсов и сокращения количества решений, принимаемых в процессе сделки, что в следствии понизило количество ошибок и сделало опыт более предсказуемым, снизился отток пользователей на этапе выбора параметров сделки, снизился риск ошибочного выбора контрагента
+            </p>
           </div>
-        </section>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        {/* ─── UI KIT ─── */}
-        <section className="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-14">
-              <SectionLabel>UI Kit</SectionLabel>
-              <SectionHeading>
-                Дизайн-система,
-                <br />
-                <span className="italic">созданная надолго</span>
-              </SectionHeading>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
-              <ScrollReveal className="overflow-hidden rounded-2xl bg-[#111] p-1">
-                <ImageWithFallback src={imgTypography} alt="Типографика" className="w-full object-cover rounded-xl" />
-              </ScrollReveal>
-              <ScrollReveal delay={0.1} className="overflow-hidden rounded-2xl bg-[#111] p-1">
-                <ImageWithFallback src={imgTypography1} alt="Типографика 2" className="w-full object-cover rounded-xl" />
-              </ScrollReveal>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[imgImageCard, imgContainer, imgImage561, imgImage562].map((img, i) => (
-                <ScrollReveal key={i} delay={i * 0.06} className="overflow-hidden rounded-xl bg-[#111]">
-                  <ImageWithFallback src={img} alt={`UI-kit ${i + 1}`} className="w-full object-cover" />
-                </ScrollReveal>
-              ))}
-            </div>
+  <!-- ===== VISUAL / BRANDING ===== -->
+  <section class="py-20 md:py-28 border-b border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12">
+      <div class="mb-10">
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Visual</p>
+      </div>
+      <div class="grid grid-cols-12 gap-5 md:gap-6 items-end mb-6">
+        <div class="col-span-12 md:col-span-8 overflow-hidden rounded-2xl bg-[#111] relative">
+          <img src="/Portfolio/assets/cases/onix/onix-visual-1.png" alt="Our ideology — ONIX" class="w-full h-full object-cover">
+          <div class="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
+            <p class="text-[#F8F8F6]/40 text-xs tracking-[0.3em] uppercase mb-3" style="font-family: Inter, sans-serif;">Our ideology</p>
+            <p class="text-[#F8F8F6] max-w-[380px]" style="font-family: Inter, sans-serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 500; line-height: 1.25;">We believe in financial freedom of all</p>
           </div>
-        </section>
-
-        {/* ─── VISUAL / CLOSING ─── */}
-        <section className="py-20 md:py-28">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12">
-            <ScrollReveal className="mb-10">
-              <SectionLabel>Visual</SectionLabel>
-            </ScrollReveal>
-
-            <div className="grid grid-cols-12 gap-5 md:gap-6 items-end mb-6">
-              <ScrollReveal className="col-span-12 md:col-span-8 overflow-hidden rounded-2xl bg-[#111] relative" style={{ aspectRatio: "4/3" }}>
-                <ImageWithFallback src={imgBanner1} alt="Our ideology — ONIX" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex flex-col justify-center p-8 md:p-12">
-                  <p className="text-[#F8F8F6]/40 text-xs tracking-[0.3em] uppercase mb-3" style={{ fontFamily: FONT }}>
-                    Our ideology
-                  </p>
-                  <p
-                    className="text-[#F8F8F6] max-w-[380px]"
-                    style={{ fontFamily: FONT, fontSize: "clamp(20px, 2.5vw, 30px)", fontWeight: 500, lineHeight: 1.25 }}
-                  >
-                    We believe in financial freedom of all
-                  </p>
-                </div>
-              </ScrollReveal>
-              <div className="col-span-12 md:col-span-4 flex flex-col gap-5">
-                <ScrollReveal delay={0.08} className="overflow-hidden rounded-2xl bg-[#111]">
-                  <ImageWithFallback src={imgMan} alt="Пользователь" className="w-full object-cover" />
-                </ScrollReveal>
-                <ScrollReveal delay={0.14} className="overflow-hidden rounded-2xl bg-[#111]">
-                  <ImageWithFallback src={imgBg1} alt="Брендинг ONIX" className="w-full object-cover" />
-                </ScrollReveal>
-              </div>
-            </div>
-
-            {/* Closing statement */}
-            <ScrollReveal className="pt-10">
-              <div
-                className="rounded-2xl p-10 md:p-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8"
-                style={{ backgroundColor: ACCENT }}
-              >
-                <p
-                  className="text-[#151515] max-w-[500px]"
-                  style={{ fontFamily: FONT, fontSize: "clamp(24px, 3.5vw, 44px)", fontWeight: 500, lineHeight: 1.15 }}
-                >
-                  Crypto is as easy<br />as calling a taxi
-                </p>
-                <p
-                  className="text-[#151515]/60 max-w-[260px]"
-                  style={{ fontFamily: FONT, fontSize: 14, fontWeight: 300, lineHeight: 1.65 }}
-                >
-                  ONIX превратил Web3-кошелёк в понятный банковский интерфейс
-                  для 2М+ пользователей по всей Африке.
-                </p>
-              </div>
-            </ScrollReveal>
+        </div>
+        <div class="col-span-12 md:col-span-4 flex flex-col gap-5">
+          <div class="overflow-hidden rounded-2xl bg-[#111]">
+            <img src="/Portfolio/assets/cases/onix/onix-visual-2.png" alt="Пользователь ONIX" class="w-full object-cover">
           </div>
-        </section>
-
-        {/* ─── NEXT ─── */}
-        <section className="py-20 md:py-28 border-t border-[#F8F8F6]/[0.06]">
-          <div className="max-w-[1280px] mx-auto px-8 md:px-12 text-center">
-            <ScrollReveal>
-              <p className="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style={{ fontFamily: FONT }}>
-                Далее
-              </p>
-              <Link
-                to="/"
-                className="inline-flex items-center gap-3 text-[#F8F8F6]/55 hover:text-[#F8F8F6] transition-colors duration-300 group"
-                style={{ fontFamily: FONT, fontSize: "clamp(22px, 3vw, 40px)", fontWeight: 500 }}
-              >
-                Все работы
-                <span className="group-hover:translate-x-2 transition-transform duration-300 inline-block">→</span>
-              </Link>
-            </ScrollReveal>
+          <div class="overflow-hidden rounded-2xl bg-[#111]">
+            <img src="/Portfolio/assets/cases/onix/onix-visual-3.png" alt="Брендинг ONIX" class="w-full object-cover">
           </div>
-        </section>
-      </main>
+        </div>
+      </div>
+      <div class="overflow-hidden rounded-2xl bg-[#111] mb-6">
+        <img src="/Portfolio/assets/cases/onix/onix-visual-4.png" alt="Карта ONIX Member" class="w-full object-cover">
+      </div>
+      <div class="pt-10">
+        <div class="rounded-2xl p-10 md:p-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8" style="background-color: rgb(219, 253, 4);">
+          <p class="text-[#151515] max-w-[500px]" style="font-family: Inter, sans-serif; font-size: clamp(24px, 3.5vw, 44px); font-weight: 500; line-height: 1.15;">Crypto is as easy<br>as calling a taxi</p>
+          <p class="text-[#151515]/60 max-w-[260px]" style="font-family: Inter, sans-serif; font-size: 14px; font-weight: 300; line-height: 1.65;">ONIX превратил Web3-кошелёк в понятный банковский интерфейс для 2М+ пользователей по всей Африке.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <Footer />
-    </>
-  );
-}
+  <!-- ===== CTA IMAGE ===== -->
+  <section class="w-full overflow-hidden">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 pb-20 md:pb-28">
+      <div class="overflow-hidden rounded-2xl bg-[#111]">
+        <img src="/Portfolio/assets/cases/onix/onix-cta.png" alt="ONIX — Crypto is as easy as calling a taxi" class="w-full object-cover">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NEXT ===== -->
+  <section class="py-20 md:py-28 border-t border-[#F8F8F6]/[0.06]">
+    <div class="max-w-[1280px] mx-auto px-8 md:px-12 text-center">
+      <div>
+        <p class="text-[#F8F8F6]/25 text-xs tracking-[0.35em] uppercase mb-6" style="font-family: Inter, sans-serif;">Далее</p>
+        <a class="inline-flex items-center gap-3 text-[#F8F8F6]/55 hover:text-[#F8F8F6] transition-colors duration-300 group" href="/Portfolio/" style="font-family: Inter, sans-serif; font-size: clamp(22px, 3vw, 40px); font-weight: 500;">
+          Все работы<span class="group-hover:translate-x-2 transition-transform duration-300 inline-block">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
