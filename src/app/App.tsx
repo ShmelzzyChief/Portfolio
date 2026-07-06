@@ -5,7 +5,7 @@ import { CasePage } from "./pages/CasePage";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <div
         className="min-h-screen"
         style={{
