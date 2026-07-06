@@ -27,7 +27,7 @@ function ContactButton({ href, label, icon, filled }: ContactButtonProps) {
             ? "bg-[#F8F8F6] text-[#151515]"
             : "border border-[#F8F8F6]/20 text-[#F8F8F6]"
         }`}
-        style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontWeight: 500 }}
+        style={{ fontFamily: " 'Inter', sans-serif", fontWeight: 500 }}
       >
         
         {label}
@@ -48,7 +48,7 @@ export function Contact() {
             <ScrollReveal>
               <p
                 className="text-[#F8F8F6]/30 text-xs tracking-[0.35em] uppercase mb-8"
-                style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif" }}
+                style={{ fontFamily: " 'Inter', sans-serif" }}
               >
                 Контакты
               </p>
@@ -58,7 +58,7 @@ export function Contact() {
               <h2
                 className="text-[#F8F8F6] leading-[1.05] tracking-[-0.02em] mb-6"
                 style={{
-                  fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                  fontFamily: " 'Inter', sans-serif",
                   fontSize: "clamp(40px, 6vw, 80px)",
                   fontWeight: 500,
                 }}
@@ -75,7 +75,7 @@ export function Contact() {
               <p
                 className="text-[#F8F8F6]/45 mb-12 md:mb-16 max-w-[480px]"
                 style={{
-                  fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                  fontFamily: " 'Inter', sans-serif",
                   fontSize: 16,
                   fontWeight: 300,
                   lineHeight: 1.75,

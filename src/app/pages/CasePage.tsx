@@ -33,7 +33,7 @@ import imgImageCard from "figma:asset/1064616d2604c5a4a7aa15dcce1ee2a9d2417117.p
 import imgContainer from "figma:asset/e850f94e777f7ae4b50f1b6303e4d316d1e12a45.png";
 import imgBg1 from "figma:asset/1eb93b729c45a573b3bcd3c37c96bf902d6a09a3.png";
 
-const FONT = "'SuisseIntl', 'Inter', sans-serif";
+const FONT = " 'Inter', sans-serif";
 const ACCENT = "#DBFD04";
 
 function SectionLabel({ children }: { children: string }) {

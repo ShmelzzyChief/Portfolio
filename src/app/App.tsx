@@ -11,7 +11,7 @@ export default function App() {
         style={{
           backgroundColor: "#151515",
           color: "#F8F8F6",
-          fontFamily: "'SuisseIntl', 'Inter', system-ui, sans-serif",
+          fontFamily: " 'Inter', system-ui, sans-serif",
         }}
       >
         <Navigation />

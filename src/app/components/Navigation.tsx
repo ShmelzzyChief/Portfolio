@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 
-const FONT = "'SuisseIntl', 'Inter', sans-serif";
+const FONT = " 'Inter', sans-serif";
 
 const BASE = import.meta.env.BASE_URL;
 
