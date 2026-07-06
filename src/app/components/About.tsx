@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import { ScrollReveal, StaggerContainer, staggerItem } from "./ScrollReveal";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import imgSea from "figma:asset/faacb94587baa44180e381740482020a20b2e1e3.png";
-import imgCat from "figma:asset/fbea2ce180e539a3e321a05073139fca5c4ed8c4.png";
-import imgFriends from "figma:asset/1e5236f42a30f883d86857e1c346b0163fb1e1d6.png";
+import imgSea from "figma:asset/fbea2ce180e539a3e321a05073139fca5c4ed8c4.png";
+import imgCat from "figma:asset/1e5236f42a30f883d86857e1c346b0163fb1e1d6.png";
+import imgFriends from "figma:asset/d8ba3532565229d2faf6b8820ab95939bb2c7870.png";
 
 const F = "'SuisseIntl', 'Inter', sans-serif";
 
@@ -77,92 +77,48 @@ export function About() {
           </p>
         </ScrollReveal>
 
-        <div className="grid grid-cols-12 gap-x-6 gap-y-12 mb-16">
-          {/* Left: heading + bio */}
-          <div className="col-span-12 lg:col-span-6">
-            <ScrollReveal delay={0.08}>
-              <h2
-                className="mb-8"
-                style={{
-                  fontFamily: F,
-                  fontSize: "clamp(28px, 4vw, 36px)",
-                  fontWeight: 400,
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.1,
-                  color: "#f8f8f6",
-                  paddingTop: 32,
-                }}
-              >
-                Делаю красиво,
-                <br />
-                думая системно
-              </h2>
-            </ScrollReveal>
+        <ScrollReveal delay={0.08}>
+          <h2
+            className="mb-8"
+            style={{
+              fontFamily: F,
+              fontSize: "clamp(28px, 4vw, 36px)",
+              fontWeight: 400,
+              letterSpacing: "-0.02em",
+              lineHeight: 1.1,
+              color: "#f8f8f6",
+              paddingTop: 32,
+            }}
+          >
+            Делаю красиво,
+            <br />
+            думая системно
+          </h2>
+        </ScrollReveal>
 
-            <ScrollReveal delay={0.14}>
-              <p
-                className="mb-0"
-                style={{
-                  fontFamily: F,
-                  fontSize: 16,
-                  fontWeight: 300,
-                  lineHeight: 1.75,
-                  color: "rgba(248,248,246,0.55)",
-                }}
-              >
-                В дизайне с 2020 года. У меня нет вышки, но есть горящие глаза
-                от дизайна и я верю, что лучшие продукты рождаются там, где
-                бизнес-цели встречаются с потребностями людей. Работал с
-                fintech-стартапами, крипто-платформами. B2B, B2C, C2C, SaaS.
-                Мне важно не просто делать красиво — мне важно делать правильно.
-                Это значит: понять пользователя, разобраться в бизнес-контексте,
-                найти решение, которое работает сразу для обоих. Вне работы —
-                изучаю новые паттерны взаимодействия, слежу за тем, как меняются
-                digital-продукты, и периодически пишу об этом в блоге.
-              </p>
-            </ScrollReveal>
-          </div>
-
-          {/* Right: photo collage — big photo on top, two small below */}
-          <div className="col-span-12 lg:col-span-5 lg:col-start-8">
-            <ScrollReveal delay={0.1}>
-              <div className="flex flex-col" style={{ gap: 10 }}>
-                <div
-                  className="w-full overflow-hidden"
-                  style={{ borderRadius: 16, aspectRatio: "4/3" }}
-                >
-                  <ImageWithFallback
-                    src={imgSea}
-                    alt="Личное фото"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex" style={{ gap: 10 }}>
-                  <div
-                    className="flex-1 overflow-hidden"
-                    style={{ borderRadius: 16, aspectRatio: "1/1" }}
-                  >
-                    <ImageWithFallback
-                      src={imgCat}
-                      alt="Личное фото с котом"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div
-                    className="flex-1 overflow-hidden"
-                    style={{ borderRadius: 16, aspectRatio: "1/1" }}
-                  >
-                    <ImageWithFallback
-                      src={imgFriends}
-                      alt="Личное фото с друзьями"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </div>
+        <ScrollReveal delay={0.14}>
+          <p
+            className="mb-16"
+            style={{
+              fontFamily: F,
+              fontSize: 16,
+              fontWeight: 300,
+              lineHeight: 1.75,
+              color: "rgba(248,248,246,0.55)",
+              maxWidth: 820,
+            }}
+          >
+            В дизайне с 2020 года. У меня нет вышки, но есть горящие глаза
+            от дизайна и я верю, что лучшие продукты рождаются там, где
+            бизнес-цели встречаются с потребностями людей. Работал с
+            fintech-стартапами, крипто-платформами. B2B, B2C, C2C, SaaS.
+            Мне важно не просто делать красиво — мне важно делать правильно.
+            Это значит: понять пользователя, разобраться в бизнес-контексте,
+            найти решение, которое работает сразу для обоих. Вне работы —
+            изучаю новые паттерны взаимодействия, слежу за тем, как меняются
+            digital-продукты, и периодически пишу об этом в блоге.
+          </p>
+        </ScrollReveal>
 
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
@@ -240,7 +196,7 @@ export function About() {
         </ScrollReveal>
 
         <StaggerContainer stagger={0.1} delayStart={0.1}>
-          <div className="relative">
+          <div className="relative mb-20">
             <div className="absolute left-0 top-1 bottom-0 w-px bg-[rgba(248,248,246,0.08)]" />
             {TIMELINE.map((item) => (
               <motion.div
@@ -295,6 +251,42 @@ export function About() {
             ))}
           </div>
         </StaggerContainer>
+
+        {/* ── Personal photos ── */}
+        <ScrollReveal>
+          <div
+            className="w-full overflow-hidden rounded-2xl mb-4"
+            style={{ aspectRatio: "3/2" }}
+          >
+            <ImageWithFallback
+              src={imgSea}
+              alt="Личное фото"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ aspectRatio: "1/1" }}
+            >
+              <ImageWithFallback
+                src={imgCat}
+                alt="Личное фото с котом"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div
+              className="overflow-hidden rounded-2xl"
+              style={{ aspectRatio: "1/1" }}
+            >
+              <ImageWithFallback
+                src={imgFriends}
+                alt="Личное фото с друзьями"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
