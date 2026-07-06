@@ -1,6 +1,6 @@
 import { SOCIAL_LINKS } from "./socialLinks";
 
-const F = "'SuisseIntl', 'Inter', sans-serif";
+const F = " 'Inter', sans-serif";
 
 function FooterPill({ label, href }: { label: string; href: string }) {
   return (

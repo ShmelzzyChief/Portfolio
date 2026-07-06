@@ -2,9 +2,13 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./ScrollReveal";
-const imgOnix = "https://drive.google.com/uc?export=view&id=1ZeQ71hIJWfk25FFtqmfP23KC2sOF7nKQ";
 
-const F = "'SuisseIntl', 'Inter', sans-serif";
+// Локальные картинки — положи их в src/app/assets/images/
+import imgOnix from "../../assets/onix-cover.png";
+import imgDriftKing from "../../assets/drift-king-cover.png";
+import imgPalette from "../../assets/palette-cover.png";
+
+const F = " 'Inter', sans-serif";
 
 const METRICS = [
   { value: "+18", label: "NPS" },
@@ -20,7 +24,7 @@ function OnixCard() {
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ scale: 1.02, y: -4 }}
-      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-col cursor-pointer"
+      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-col cursor-pointer h-full"
       style={{ transition: "box-shadow 0.4s" }}
     >
       <Link
@@ -140,49 +144,24 @@ function OnixCard() {
   );
 }
 
-function ComingSoonCard({ index }: { index: number }) {
+// Coming-soon карточки: блюр и текст "Coming soon" уже отрисованы прямо в самой
+// картинке (см. присланные файлы), поэтому здесь просто показываем изображение
+// на всю карточку, без дополнительного оверлея.
+function ComingSoonCard({ image, index }: { image: string; index: number }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden"
-      style={{ minHeight: 320 }}
+      className="relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex-1 min-h-[220px] md:min-h-0"
     >
-      {/* Blurred glass overlay */}
-      <div
-        className="absolute inset-0 flex flex-col items-center justify-center"
-        style={{ backdropFilter: "blur(5px)", backgroundColor: "rgba(77,77,77,0.1)" }}
-      >
-        <p
-          className="mb-2"
-          style={{ fontFamily: F, fontSize: 20, fontWeight: 400, color: "#f8f8f6" }}
-        >
-          Coming soon
-        </p>
-        <p
-          style={{
-            fontFamily: F,
-            fontSize: 13,
-            fontWeight: 300,
-            color: "rgba(248,248,246,0.4)",
-            textAlign: "center",
-            maxWidth: 200,
-            lineHeight: 1.5,
-          }}
-        >
-          Этот кейс ещё в разработке
-        </p>
-      </div>
-
-      {/* Placeholder bg */}
-      <div className="w-full h-full min-h-[320px] bg-[#111]" />
+      <ImageWithFallback src={image} alt="Скоро новый кейс" className="absolute inset-0 w-full h-full object-cover" />
 
       {/* Index */}
       <span
         className="absolute bottom-6 right-6"
-        style={{ fontFamily: F, fontSize: 12, letterSpacing: "0.1em", color: "rgba(248,248,246,0.15)" }}
+        style={{ fontFamily: F, fontSize: 12, letterSpacing: "0.1em", color: "rgba(248,248,246,0.6)" }}
       >
         0{index + 2}
       </span>
@@ -213,11 +192,15 @@ export function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        {/* Cards grid — 1 real + 2 coming soon */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          <OnixCard />
-          <ComingSoonCard index={0} />
-          <ComingSoonCard index={1} />
+        {/* Layout: 1 большая карточка слева + 2 карточки друг под другом справа */}
+        <div className="flex flex-col md:flex-row gap-5 md:gap-6 md:items-stretch">
+          <div className="md:w-1/2">
+            <OnixCard />
+          </div>
+          <div className="flex flex-col gap-5 md:gap-6 md:w-1/2">
+            <ComingSoonCard index={0} image={imgDriftKing} />
+            <ComingSoonCard index={1} image={imgPalette} />
+          </div>
         </div>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { SOCIAL_LINKS } from "./socialLinks";
 import imgPortrait from "figma:asset/b2c8425364794ec88c37d3951c0b730958289738.png";
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const;
-const F = "'SuisseIntl', 'Inter', sans-serif";
+const F = " 'Inter', sans-serif";
 
 const BUTTONS = SOCIAL_LINKS;
 

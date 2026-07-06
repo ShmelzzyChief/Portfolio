@@ -5,7 +5,7 @@ import imgSea from "figma:asset/fbea2ce180e539a3e321a05073139fca5c4ed8c4.png";
 import imgCat from "figma:asset/1e5236f42a30f883d86857e1c346b0163fb1e1d6.png";
 import imgFriends from "figma:asset/d8ba3532565229d2faf6b8820ab95939bb2c7870.png";
 
-const F = "'SuisseIntl', 'Inter', sans-serif";
+const F = " 'Inter', sans-serif";
 
 const SKILLS = [
   "Продуктовый дизайн",
