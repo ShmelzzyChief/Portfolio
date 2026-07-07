@@ -17,7 +17,6 @@ export default function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/case/crypto" element={<CasePage />} />
           <Route path="/case/:slug" element={<CasePage />} />
         </Routes>
       </div>
