@@ -2,20 +2,18 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router";
 
-const FONT = " 'Inter', sans-serif";
-
-const BASE = import.meta.env.BASE_URL;
+const FONT = "'SuisseIntl', 'Inter', sans-serif";
 
 const NAV_LINKS = [
-  { label: "Обо мне", href: `${BASE}#about` },
-  { label: "Работы", href: `${BASE}#work` },
-  { label: "Контакты", href: `${BASE}#contact` },
+  { label: "Обо мне", href: "/#about" },
+  { label: "Работы", href: "/#work" },
+  { label: "Контакты", href: "/#contact" },
 ];
 
 function NavLink({ href, children }: { href: string; children: string }) {
   return (
-    
-      <a href={href}
+    <a
+      href={href}
       className="relative text-[#F8F8F6]/50 hover:text-[#F8F8F6] text-sm tracking-widest uppercase transition-colors duration-300 group py-1"
       style={{ fontFamily: FONT }}
     >

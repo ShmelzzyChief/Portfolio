@@ -1,11 +1,7 @@
 import { motion } from "motion/react";
 import { ScrollReveal, StaggerContainer, staggerItem } from "./ScrollReveal";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-import imgSea from "figma:asset/fbea2ce180e539a3e321a05073139fca5c4ed8c4.png";
-import imgCat from "figma:asset/1e5236f42a30f883d86857e1c346b0163fb1e1d6.png";
-import imgFriends from "figma:asset/d8ba3532565229d2faf6b8820ab95939bb2c7870.png";
 
-const F = " 'Inter', sans-serif";
+const F = "'SuisseIntl', 'Inter', sans-serif";
 
 const SKILLS = [
   "Продуктовый дизайн",
@@ -77,84 +73,88 @@ export function About() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.08}>
-          <h2
-            className="mb-8"
-            style={{
-              fontFamily: F,
-              fontSize: "clamp(28px, 4vw, 36px)",
-              fontWeight: 400,
-              letterSpacing: "-0.02em",
-              lineHeight: 1.1,
-              color: "#f8f8f6",
-              paddingTop: 32,
-            }}
-          >
-            Делаю красиво,
-            <br />
-            думая системно
-          </h2>
-        </ScrollReveal>
-
-        <ScrollReveal delay={0.14}>
-          <p
-            className="mb-16"
-            style={{
-              fontFamily: F,
-              fontSize: 16,
-              fontWeight: 300,
-              lineHeight: 1.75,
-              color: "rgba(248,248,246,0.55)",
-              maxWidth: 820,
-            }}
-          >
-            В дизайне с 2020 года. У меня нет вышки, но есть горящие глаза
-            от дизайна и я верю, что лучшие продукты рождаются там, где
-            бизнес-цели встречаются с потребностями людей. Работал с
-            fintech-стартапами, крипто-платформами. B2B, B2C, C2C, SaaS.
-            Мне важно не просто делать красиво — мне важно делать правильно.
-            Это значит: понять пользователя, разобраться в бизнес-контексте,
-            найти решение, которое работает сразу для обоих. Вне работы —
-            изучаю новые паттерны взаимодействия, слежу за тем, как меняются
-            digital-продукты, и периодически пишу об этом в блоге.
-          </p>
-        </ScrollReveal>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-20">
-          {STATS.map((s, i) => (
-            <motion.div
-              key={s.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
-            >
-              <p
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12 mb-20">
+          {/* Left: heading + bio */}
+          <div className="col-span-12 lg:col-span-7">
+            <ScrollReveal delay={0.08}>
+              <h2
+                className="mb-8"
                 style={{
                   fontFamily: F,
-                  fontSize: "clamp(28px, 3.5vw, 40px)",
+                  fontSize: "clamp(28px, 4vw, 36px)",
                   fontWeight: 400,
-                  lineHeight: 1,
+                  letterSpacing: "-0.02em",
+                  lineHeight: 1.1,
                   color: "#f8f8f6",
-                  marginBottom: 4,
+                  paddingTop: 32,
                 }}
               >
-                {s.value}
-              </p>
+                Делаю красиво,
+                <br />
+                думая системно
+              </h2>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.14}>
               <p
+                className="mb-0"
                 style={{
                   fontFamily: F,
-                  fontSize: 13,
+                  fontSize: 16,
                   fontWeight: 300,
-                  color: "rgba(248,248,246,0.4)",
-                  lineHeight: 1.4,
+                  lineHeight: 1.75,
+                  color: "rgba(248,248,246,0.55)",
                 }}
               >
-                {s.label}
+                В дизайне с 2020 года. У меня нет вышки, но есть горящие глаза
+                от дизайна и я верю, что лучшие продукты рождаются там, где
+                бизнес-цели встречаются с потребностями людей. Работал с
+                fintech-стартапами, крипто-платформами. B2B, B2C, C2C, SaaS.
+                Мне важно не просто делать красиво — мне важно делать правильно.
+                Это значит: понять пользователя, разобраться в бизнес-контексте,
+                найти решение, которое работает сразу для обоих. Вне работы —
+                изучаю новые паттерны взаимодействия, слежу за тем, как меняются
+                digital-продукты, и периодически пишу об этом в блоге.
               </p>
-            </motion.div>
-          ))}
+            </ScrollReveal>
+          </div>
+
+          {/* Right: stats */}
+          <div className="col-span-12 lg:col-span-4 lg:col-start-9 flex flex-col justify-end gap-6">
+            {STATS.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
+              >
+                <p
+                  style={{
+                    fontFamily: F,
+                    fontSize: "clamp(28px, 3.5vw, 40px)",
+                    fontWeight: 400,
+                    lineHeight: 1,
+                    color: "#f8f8f6",
+                    marginBottom: 4,
+                  }}
+                >
+                  {s.value}
+                </p>
+                <p
+                  style={{
+                    fontFamily: F,
+                    fontSize: 13,
+                    fontWeight: 300,
+                    color: "rgba(248,248,246,0.4)",
+                    lineHeight: 1.4,
+                  }}
+                >
+                  {s.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
         {/* Skill tags */}
@@ -196,7 +196,7 @@ export function About() {
         </ScrollReveal>
 
         <StaggerContainer stagger={0.1} delayStart={0.1}>
-          <div className="relative mb-20">
+          <div className="relative">
             <div className="absolute left-0 top-1 bottom-0 w-px bg-[rgba(248,248,246,0.08)]" />
             {TIMELINE.map((item) => (
               <motion.div
@@ -251,42 +251,6 @@ export function About() {
             ))}
           </div>
         </StaggerContainer>
-
-        {/* ── Personal photos ── */}
-        <ScrollReveal>
-          <div
-            className="w-full overflow-hidden rounded-2xl mb-4"
-            style={{ aspectRatio: "3/2" }}
-          >
-            <ImageWithFallback
-              src={imgSea}
-              alt="Личное фото"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div
-              className="overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "1/1" }}
-            >
-              <ImageWithFallback
-                src={imgCat}
-                alt="Личное фото с котом"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div
-              className="overflow-hidden rounded-2xl"
-              style={{ aspectRatio: "1/1" }}
-            >
-              <ImageWithFallback
-                src={imgFriends}
-                alt="Личное фото с друзьями"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
     </section>
   );
