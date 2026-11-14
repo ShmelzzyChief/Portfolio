@@ -1,10 +1,12 @@
 import { motion } from "motion/react";
-import { Link } from "react-router";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { ScrollReveal } from "./ScrollReveal";
-const imgOnix = "https://drive.google.com/uc?export=view&id=1ZeQ71hIJWfk25FFtqmfP23KC2sOF7nKQ";
 
-const F = "'SuisseIntl', 'Inter', sans-serif";
+import imgOnix from "../../assets/onix-cover.png";
+import imgDriftKing from "../../assets/drift-king-dprofile.png";
+import imgK2B from "../../assets/k2b-cover.png";
+
+const F = " 'Inter', sans-serif";
 
 const METRICS = [
   { value: "+18", label: "NPS" },
@@ -20,11 +22,13 @@ function OnixCard() {
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ scale: 1.02, y: -4 }}
-      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-col cursor-pointer"
+      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-col h-full"
       style={{ transition: "box-shadow 0.4s" }}
     >
-      <Link
-        to="/case/crypto"
+      <a
+        href="https://dprofile.ru/case/183617/onyx-product-design-case"
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex flex-col flex-1 outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
         aria-label="Смотреть кейс: Web-3 кошелёк"
       >
@@ -135,58 +139,60 @@ function OnixCard() {
             </span>
           </div>
         </div>
-      </Link>
+      </a>
     </motion.article>
   );
 }
 
-function ComingSoonCard({ index }: { index: number }) {
+const DPROFILE_CASES = [
+  {
+    title: "Drift King",
+    description: "Интерфейс управления в дрифт-симуляторе",
+    image: imgDriftKing,
+    url: "https://dprofile.ru/case/173525/drift-king-game-ui-keys",
+  },
+  {
+    title: "K2B E-Learning Platform",
+    description: "Лендинг для бизнес-школы",
+    image: imgK2B,
+    url: "https://dprofile.ru/case/137728/k2b-e-learning-platform",
+  },
+];
+
+function DprofileCaseCard({
+  project,
+  index,
+}: {
+  project: (typeof DPROFILE_CASES)[number];
+  index: number;
+}) {
   return (
-    <motion.div
+    <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden"
-      style={{ minHeight: 320 }}
+      whileHover={{ scale: 1.02, y: -4 }}
+      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-1 min-h-[220px]"
     >
-      {/* Blurred glass overlay */}
-      <div
-        className="absolute inset-0 flex flex-col items-center justify-center"
-        style={{ backdropFilter: "blur(5px)", backgroundColor: "rgba(77,77,77,0.1)" }}
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Смотреть кейс: ${project.title}`}
+        className="relative isolate flex flex-1 flex-col justify-end p-6 md:p-8 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
       >
-        <p
-          className="mb-2"
-          style={{ fontFamily: F, fontSize: 20, fontWeight: 400, color: "#f8f8f6" }}
-        >
-          Coming soon
-        </p>
-        <p
-          style={{
-            fontFamily: F,
-            fontSize: 13,
-            fontWeight: 300,
-            color: "rgba(248,248,246,0.4)",
-            textAlign: "center",
-            maxWidth: 200,
-            lineHeight: 1.5,
-          }}
-        >
-          Этот кейс ещё в разработке
-        </p>
-      </div>
-
-      {/* Placeholder bg */}
-      <div className="w-full h-full min-h-[320px] bg-[#111]" />
-
-      {/* Index */}
-      <span
-        className="absolute bottom-6 right-6"
-        style={{ fontFamily: F, fontSize: 12, letterSpacing: "0.1em", color: "rgba(248,248,246,0.15)" }}
-      >
-        0{index + 2}
-      </span>
-    </motion.div>
+        <ImageWithFallback
+          src={project.image}
+          alt=""
+          className="absolute inset-0 -z-20 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+        />
+        <div className="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/55 to-transparent" />
+        <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
+        <p className="mt-1 text-sm text-[#f8f8f6]/80">{project.description}</p>
+        <span className="mt-3 text-sm font-medium text-[#f8f8f6]">Смотреть кейс ↗</span>
+      </a>
+    </motion.article>
   );
 }
 
@@ -213,11 +219,16 @@ export function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        {/* Cards grid — 1 real + 2 coming soon */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          <OnixCard />
-          <ComingSoonCard index={0} />
-          <ComingSoonCard index={1} />
+        {/* Layout: 1 большая карточка слева + 2 карточки друг под другом справа */}
+        <div className="flex flex-col md:flex-row gap-5 md:gap-6 md:items-stretch">
+          <div className="md:w-1/2">
+            <OnixCard />
+          </div>
+          <div className="flex flex-col gap-5 md:gap-6 md:w-1/2">
+            {DPROFILE_CASES.map((project, index) => (
+              <DprofileCaseCard key={project.url} project={project} index={index} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

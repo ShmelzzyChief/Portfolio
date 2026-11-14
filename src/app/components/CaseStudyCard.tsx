@@ -57,7 +57,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <span
               className="px-2.5 py-1 text-[10px] tracking-[0.15em] uppercase border rounded-full"
               style={{
-                fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                fontFamily: " 'Inter', sans-serif",
                 color: accent,
                 borderColor: `${accent}30`,
                 backgroundColor: `${accent}10`,
@@ -79,7 +79,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
           <h3
             className="text-[#F8F8F6] mb-3 leading-tight tracking-[-0.01em]"
             style={{
-              fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+              fontFamily: " 'Inter', sans-serif",
               fontSize: "clamp(20px, 2vw, 26px)",
               fontWeight: 500,
             }}
@@ -90,7 +90,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
           <p
             className="text-[#F8F8F6]/45 mb-6 leading-relaxed flex-1"
             style={{
-              fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+              fontFamily: " 'Inter', sans-serif",
               fontSize: 14,
               fontWeight: 300,
               lineHeight: 1.7,
@@ -103,14 +103,14 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <div className="flex items-center gap-1.5">
               <span
                 className="text-[#F8F8F6]/25"
-                style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontSize: 11 }}
+                style={{ fontFamily: " 'Inter', sans-serif", fontSize: 11 }}
               >
                 Роль
               </span>
               <span
                 className="text-[#F8F8F6]/60"
                 style={{
-                  fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                  fontFamily: " 'Inter', sans-serif",
                   fontSize: 12,
                   fontWeight: 500,
                 }}
@@ -122,14 +122,14 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <div className="flex items-center gap-1.5">
               <span
                 className="text-[#F8F8F6]/25"
-                style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontSize: 11 }}
+                style={{ fontFamily: " 'Inter', sans-serif", fontSize: 11 }}
               >
                 Период
               </span>
               <span
                 className="text-[#F8F8F6]/60"
                 style={{
-                  fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                  fontFamily: " 'Inter', sans-serif",
                   fontSize: 12,
                   fontWeight: 500,
                 }}
@@ -148,7 +148,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
                 <p
                   className="text-[#F8F8F6]"
                   style={{
-                    fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                    fontFamily: " 'Inter', sans-serif",
                     fontSize: 16,
                     fontWeight: 600,
                     lineHeight: 1.2,
@@ -159,7 +159,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
                 <p
                   className="text-[#F8F8F6]/35 mt-0.5"
                   style={{
-                    fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                    fontFamily: " 'Inter', sans-serif",
                     fontSize: 11,
                     fontWeight: 400,
                     letterSpacing: "0.05em",
@@ -174,7 +174,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
           <div className="flex items-center justify-between">
             <motion.span
               className="flex items-center gap-2 text-[#F8F8F6] text-sm tracking-wide group-hover:gap-3 transition-all duration-300"
-              style={{ fontFamily: "'SuisseIntl', 'Inter', sans-serif", fontWeight: 500 }}
+              style={{ fontFamily: " 'Inter', sans-serif", fontWeight: 500 }}
             >
               Смотреть кейс
               <motion.span
@@ -189,7 +189,7 @@ export function CaseStudyCard({ study, index }: CaseStudyCardProps) {
             <span
               className="text-[#F8F8F6]/15 text-xs"
               style={{
-                fontFamily: "'SuisseIntl', 'Inter', sans-serif",
+                fontFamily: " 'Inter', sans-serif",
                 letterSpacing: "0.1em",
               }}
             >
