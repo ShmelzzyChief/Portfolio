@@ -188,40 +188,44 @@ function DprofileCaseCard({
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ scale: 1.02, y: -4 }}
-      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-1 min-h-[220px]"
+      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-1 md:min-h-[220px]"
     >
       <a
         href={project.url}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`Смотреть кейс: ${project.title}`}
-        className="relative isolate flex min-w-0 flex-1 flex-col justify-end px-6 py-4 md:px-8 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
+        className="relative isolate flex min-w-0 flex-1 flex-col md:justify-end outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
       >
-        <ImageWithFallback
-          src={project.image}
-          alt=""
-          className="absolute inset-0 -z-20 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
-        />
-        <div className="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/55 to-transparent" />
-        <div className="absolute inset-0 -z-10 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-45" />
-        <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
-        <p className="mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80" title={project.description}>
-          {project.description}
-        </p>
-        <p className="mt-1 text-xs text-[#f8f8f6]/90">
-          <span className="text-[#f8f8f6]/65">Роль</span> {project.role}
-        </p>
-        <div className="mt-2 flex gap-3">
-          {project.results.map(({ value, label }) => (
-            <ResultBadge key={label} value={value} label={label} />
-          ))}
+        <div className="relative h-[126px] shrink-0 overflow-hidden md:absolute md:inset-0 md:-z-10 md:h-auto">
+          <ImageWithFallback
+            src={project.image}
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+          />
+          <div className="absolute inset-0 hidden bg-linear-to-t from-black via-black/55 to-transparent md:block" />
+          <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-45" />
         </div>
-        <span
-          className="mt-3 text-sm font-medium text-[#f8f8f6]"
-          style={{ fontFamily: F, letterSpacing: "0.025em" }}
-        >
-          Смотреть кейс →
-        </span>
+        <div className="px-4 py-4 md:px-8">
+          <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
+          <p className="mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80" title={project.description}>
+            {project.description}
+          </p>
+          <p className="mt-1 text-xs text-[#f8f8f6]/90">
+            <span className="text-[#f8f8f6]/65">Роль</span> {project.role}
+          </p>
+          <div className="mt-2 flex gap-2 md:gap-3">
+            {project.results.map(({ value, label }) => (
+              <ResultBadge key={label} value={value} label={label} />
+            ))}
+          </div>
+          <span
+            className="mt-3 block text-sm font-medium text-[#f8f8f6]"
+            style={{ fontFamily: F, letterSpacing: "0.025em" }}
+          >
+            Смотреть кейс →
+          </span>
+        </div>
       </a>
     </motion.article>
   );
