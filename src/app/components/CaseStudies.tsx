@@ -76,9 +76,11 @@ const PROJECTS: {
 function ProjectCard({
   project,
   index,
+  landscape = false,
 }: {
   project: (typeof PROJECTS)[number];
   index: number;
+  landscape?: boolean;
 }) {
   return (
     <motion.article
@@ -87,7 +89,7 @@ function ProjectCard({
       viewport={{ once: true, margin: "-5%" }}
       transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ scale: 1.02, y: -4 }}
-      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex min-w-0"
+      className={`group relative flex min-w-0 overflow-hidden rounded-[14px] border border-[rgba(248,248,246,0.07)] bg-[#1A1A1A] ${landscape ? "lg:aspect-video" : "lg:h-full"}`}
     >
       <a
         href={project.url}
@@ -96,7 +98,9 @@ function ProjectCard({
         aria-label={`Смотреть кейс: ${project.title}`}
         className="relative isolate flex min-w-0 flex-1 flex-col outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
       >
-        <div className="relative h-[126px] shrink-0 overflow-hidden">
+        <div
+          className={`relative h-[126px] shrink-0 overflow-hidden ${landscape ? "lg:h-auto lg:flex-1" : "lg:h-auto lg:aspect-video"}`}
+        >
           <ImageWithFallback
             src={project.image}
             alt=""
@@ -104,15 +108,18 @@ function ProjectCard({
           />
           <div className="absolute inset-0 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-45" />
         </div>
-        <div className="flex flex-1 flex-col p-4">
+        <div className={`flex flex-1 flex-col p-4 ${landscape ? "lg:flex-none" : "lg:p-8"}`}>
           <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
-          <p className="mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80" title={project.description}>
+          <p
+            className={`mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80 ${landscape ? "" : "lg:mt-3 lg:line-clamp-none lg:leading-relaxed"}`}
+            title={project.description}
+          >
             {project.description}
           </p>
-          <p className="mt-1 text-xs text-[#f8f8f6]/90">
+          <p className={`mt-1 text-xs text-[#f8f8f6]/90 ${landscape ? "" : "lg:mt-5"}`}>
             <span className="text-[#f8f8f6]/65">Роль</span> {project.role} {project.period && <span className="text-[#f8f8f6]/65">· {project.period}</span>}
           </p>
-          <div className="mt-2 flex flex-wrap gap-2">
+          <div className={`mt-2 flex flex-wrap gap-2 ${landscape ? "lg:flex-nowrap" : "lg:mt-5"}`}>
             {project.results.map(({ value, label }) => (
               <ResultBadge key={label} value={value} label={label} />
             ))}
@@ -130,6 +137,8 @@ function ProjectCard({
 }
 
 export function CaseStudies() {
+  const [wallet, ...otherProjects] = PROJECTS;
+
   return (
     <section id="work" className="py-20 md:py-28">
       <div className="max-w-[1280px] mx-auto px-8 md:px-12">
@@ -152,10 +161,13 @@ export function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-          {PROJECTS.map((project, index) => (
-            <ProjectCard key={project.url} project={project} index={index} />
-          ))}
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 lg:gap-6">
+          <ProjectCard project={wallet} index={0} />
+          <div className="grid min-w-0 gap-5 lg:gap-6">
+            {otherProjects.map((project, index) => (
+              <ProjectCard key={project.url} project={project} index={index + 1} landscape />
+            ))}
+          </div>
         </div>
       </div>
     </section>
