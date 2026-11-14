@@ -14,8 +14,8 @@ type Project = {
   category: string;
   image: string;
   url: string;
-  details?: { role: string; period: string };
-  metrics?: { value: string; label: string }[];
+  details: { role: string; period?: string };
+  metrics: { value: string; label: string }[];
 };
 
 const PROJECTS: Project[] = [
@@ -34,17 +34,27 @@ const PROJECTS: Project[] = [
   },
   {
     title: "Drift King",
-    description: "Интерфейс управления в дрифт-симуляторе",
+    description: "Концепт мобильного дрифт-симулятора с тюнингом, рейтингами и сезонными событиями. Проверил интерес к игре через лендинг и интервью с игроками.",
     category: "Game UI",
     image: imgDriftKing,
     url: "https://dprofile.ru/case/173525/drift-king-game-ui-keys",
+    details: { role: "UX/UI-дизайнер" },
+    metrics: [
+      { value: "647", label: "Заинтересовались за 2 недели" },
+      { value: "82%", label: "Аудитория на iOS" },
+    ],
   },
   {
     title: "K2B E-Learning Platform",
-    description: "Лендинг для бизнес-школы",
+    description: "Лендинг бизнес-школы K2B с анонсами мероприятий. Спроектировал страницу, где можно задать вопрос, записаться на мероприятие или подать заявку на выступление.",
     category: "EdTech",
     image: imgK2B,
     url: "https://dprofile.ru/case/137728/k2b-e-learning-platform",
+    details: { role: "UX/UI-дизайнер", period: "2025" },
+    metrics: [
+      { value: "26+", label: "Финальных экранов" },
+      { value: "2", label: "Версии сайта: десктоп и мобильная" },
+    ],
   },
 ];
 
@@ -67,7 +77,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         aria-label={`Смотреть кейс: ${project.title}`}
       >
         {/* Cover image */}
-        <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: "16/9" }}>
+        <div
+          className="relative overflow-hidden bg-[#111]"
+          style={index === 0 ? { aspectRatio: "16/9" } : { height: 220 }}
+        >
           <div className="w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]">
             <ImageWithFallback
               src={project.image}
@@ -121,46 +134,46 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           </p>
 
           {/* Role + period */}
-          {project.details && (
-            <div className="flex items-center gap-4 mb-6 flex-wrap">
-              <div className="flex items-center gap-1.5">
-                <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Роль</span>
-                <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
-                  {project.details.role}
-                </span>
-              </div>
-              <span style={{ color: "rgba(248,248,246,0.15)" }}>·</span>
-              <div className="flex items-center gap-1.5">
-                <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Период</span>
-                <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
-                  {project.details.period}
-                </span>
-              </div>
+          <div className="flex items-center gap-4 mb-6 flex-wrap">
+            <div className="flex items-center gap-1.5">
+              <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Роль</span>
+              <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
+                {project.details.role}
+              </span>
             </div>
-          )}
+            {project.details.period && (
+              <>
+                <span style={{ color: "rgba(248,248,246,0.15)" }}>·</span>
+                <div className="flex items-center gap-1.5">
+                  <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Период</span>
+                  <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
+                    {project.details.period}
+                  </span>
+                </div>
+              </>
+            )}
+          </div>
 
           {/* Metrics */}
-          {project.metrics && (
-            <div className="flex gap-3 mb-8 flex-wrap">
-              {project.metrics.map((m) => (
-                <div
-                  key={m.label}
-                  className="px-3 py-2 rounded-[10px]"
-                  style={{
-                    backgroundColor: "rgba(248,248,246,0.04)",
-                    border: "1px solid rgba(248,248,246,0.07)",
-                  }}
-                >
-                  <p style={{ fontFamily: F, fontSize: 16, fontWeight: 600, lineHeight: 1.2, color: "#f8f8f6" }}>
-                    {m.value}
-                  </p>
-                  <p style={{ fontFamily: F, fontSize: 11, letterSpacing: "0.05em", color: "rgba(248,248,246,0.35)" }}>
-                    {m.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="flex gap-3 mb-8 flex-wrap">
+            {project.metrics.map((m) => (
+              <div
+                key={m.label}
+                className="px-3 py-2 rounded-[10px]"
+                style={{
+                  backgroundColor: "rgba(248,248,246,0.04)",
+                  border: "1px solid rgba(248,248,246,0.07)",
+                }}
+              >
+                <p style={{ fontFamily: F, fontSize: 16, fontWeight: 600, lineHeight: 1.2, color: "#f8f8f6" }}>
+                  {m.value}
+                </p>
+                <p style={{ fontFamily: F, fontSize: 11, letterSpacing: "0.05em", color: "rgba(248,248,246,0.35)" }}>
+                  {m.label}
+                </p>
+              </div>
+            ))}
+          </div>
 
           {/* CTA */}
           <div className="flex items-center justify-between">
@@ -203,10 +216,13 @@ export function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {PROJECTS.map((project, index) => (
-            <ProjectCard key={project.url} project={project} index={index} />
-          ))}
+        <div className="grid items-start gap-5 md:grid-cols-2 md:gap-6">
+          <ProjectCard project={PROJECTS[0]} index={0} />
+          <div className="flex flex-col gap-5 md:gap-6">
+            {PROJECTS.slice(1).map((project, index) => (
+              <ProjectCard key={project.url} project={project} index={index + 1} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
