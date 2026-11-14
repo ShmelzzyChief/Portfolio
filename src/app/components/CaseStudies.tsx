@@ -8,83 +8,36 @@ import imgK2B from "../../assets/k2b-cover.png";
 
 const F = " 'Inter', sans-serif";
 
-type Project = {
-  title: string;
-  description: string;
-  category: string;
-  image: string;
-  url: string;
-  details: { role: string; period?: string };
-  metrics: { value: string; label: string }[];
-};
-
-const PROJECTS: Project[] = [
-  {
-    title: "Web-3 кошелёк",
-    description: "ONIX — это приложение для тех африканцев, которые больше не хотят смотреть, как их сбережения превращаются в пыль из-за бешеной девальвации местной валюты.",
-    category: "Web3 · Fintech",
-    image: imgOnix,
-    url: "https://dprofile.ru/case/183617/onyx-product-design-case",
-    details: { role: "Product designer", period: "2024–2026" },
-    metrics: [
-      { value: "+18", label: "NPS" },
-      { value: "−12%", label: "Drop-off Rate" },
-      { value: "−80%", label: "Misclick Rate" },
-    ],
-  },
-  {
-    title: "Drift King",
-    description: "Концепт мобильного дрифт-симулятора с тюнингом, рейтингами и сезонными событиями. Проверил интерес к игре через лендинг и интервью с игроками.",
-    category: "Game UI",
-    image: imgDriftKing,
-    url: "https://dprofile.ru/case/173525/drift-king-game-ui-keys",
-    details: { role: "UX/UI-дизайнер" },
-    metrics: [
-      { value: "647", label: "Заинтересовались за 2 недели" },
-      { value: "82%", label: "Аудитория на iOS" },
-    ],
-  },
-  {
-    title: "K2B E-Learning Platform",
-    description: "Лендинг бизнес-школы K2B с анонсами мероприятий. Спроектировал страницу, где можно задать вопрос, записаться на мероприятие или подать заявку на выступление.",
-    category: "EdTech",
-    image: imgK2B,
-    url: "https://dprofile.ru/case/137728/k2b-e-learning-platform",
-    details: { role: "UX/UI-дизайнер", period: "2025" },
-    metrics: [
-      { value: "26+", label: "Финальных экранов" },
-      { value: "2", label: "Версии сайта: десктоп и мобильная" },
-    ],
-  },
+const METRICS = [
+  { value: "+18", label: "NPS" },
+  { value: "−12%", label: "Drop-off Rate" },
+  { value: "−80%", label: "Misclick Rate" },
 ];
 
-function ProjectCard({ project, index }: { project: Project; index: number }) {
+function OnixCard() {
   return (
     <motion.article
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-5%" }}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
       whileHover={{ scale: 1.02, y: -4 }}
       className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-col h-full"
       style={{ transition: "box-shadow 0.4s" }}
     >
       <a
-        href={project.url}
+        href="https://dprofile.ru/case/183617/onyx-product-design-case"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-col flex-1 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
-        aria-label={`Смотреть кейс: ${project.title}`}
+        className="flex flex-col flex-1 outline-none focus-visible:ring-2 focus-visible:ring-[#3B82F6]"
+        aria-label="Смотреть кейс: Web-3 кошелёк"
       >
         {/* Cover image */}
-        <div
-          className="relative overflow-hidden bg-[#111]"
-          style={index === 0 ? { aspectRatio: "16/9" } : { height: 220 }}
-        >
+        <div className="relative overflow-hidden bg-[#111]" style={{ aspectRatio: "16/9" }}>
           <div className="w-full h-full transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-[1.06]">
             <ImageWithFallback
-              src={project.image}
-              alt=""
+              src={imgOnix}
+              alt="Web-3 кошелёк — ONIX"
               className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
             />
           </div>
@@ -100,7 +53,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
                 backgroundColor: "rgba(219,253,4,0.1)",
               }}
             >
-              {project.category}
+              Web3 · Fintech
             </span>
           </div>
 
@@ -117,7 +70,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             className="text-[#f8f8f6] mb-3 leading-tight"
             style={{ fontFamily: F, fontSize: 20, fontWeight: 400, letterSpacing: "-0.01em" }}
           >
-            {project.title}
+            Web-3 кошелёк
           </h3>
 
           <p
@@ -130,7 +83,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               color: "rgba(248,248,246,0.45)",
             }}
           >
-            {project.description}
+            ONIX — это приложение для тех африканцев, которые больше не хотят
+            смотреть, как их сбережения превращаются в пыль из-за бешеной
+            девальвации местной валюты.
           </p>
 
           {/* Role + period */}
@@ -138,25 +93,21 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <div className="flex items-center gap-1.5">
               <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Роль</span>
               <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
-                {project.details.role}
+                Product designer
               </span>
             </div>
-            {project.details.period && (
-              <>
-                <span style={{ color: "rgba(248,248,246,0.15)" }}>·</span>
-                <div className="flex items-center gap-1.5">
-                  <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Период</span>
-                  <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
-                    {project.details.period}
-                  </span>
-                </div>
-              </>
-            )}
+            <span style={{ color: "rgba(248,248,246,0.15)" }}>·</span>
+            <div className="flex items-center gap-1.5">
+              <span style={{ fontFamily: F, fontSize: 11, color: "rgba(248,248,246,0.25)" }}>Период</span>
+              <span style={{ fontFamily: F, fontSize: 12, fontWeight: 500, color: "rgba(248,248,246,0.6)" }}>
+                2024–2026
+              </span>
+            </div>
           </div>
 
           {/* Metrics */}
           <div className="flex gap-3 mb-8 flex-wrap">
-            {project.metrics.map((m) => (
+            {METRICS.map((m) => (
               <div
                 key={m.label}
                 className="px-3 py-2 rounded-[10px]"
@@ -184,10 +135,85 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               Смотреть кейс →
             </span>
             <span style={{ fontFamily: F, fontSize: 12, letterSpacing: "0.1em", color: "rgba(248,248,246,0.15)" }}>
-              {String(index + 1).padStart(2, "0")}
+              01
             </span>
           </div>
         </div>
+      </a>
+    </motion.article>
+  );
+}
+
+const DPROFILE_CASES = [
+  {
+    title: "Drift King",
+    description: "Концепт мобильного дрифт-симулятора с тюнингом, рейтингами и сезонными событиями. Проверил интерес к игре через лендинг и интервью с игроками.",
+    role: "UX/UI-дизайнер",
+    results: [
+      { value: "647", label: "Заинтересовались за 2 недели" },
+      { value: "82%", label: "Аудитория на iOS" },
+    ],
+    image: imgDriftKing,
+    url: "https://dprofile.ru/case/173525/drift-king-game-ui-keys",
+  },
+  {
+    title: "K2B E-Learning Platform",
+    description: "Лендинг бизнес-школы K2B с анонсами мероприятий. Спроектировал страницу, где можно задать вопрос, записаться на мероприятие или подать заявку на выступление.",
+    role: "UX/UI-дизайнер",
+    results: [
+      { value: "26+", label: "Экранов" },
+      { value: "2", label: "Версии сайта" },
+    ],
+    image: imgK2B,
+    url: "https://dprofile.ru/case/137728/k2b-e-learning-platform",
+  },
+];
+
+function DprofileCaseCard({
+  project,
+  index,
+}: {
+  project: (typeof DPROFILE_CASES)[number];
+  index: number;
+}) {
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-5%" }}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      whileHover={{ scale: 1.02, y: -4 }}
+      className="group relative bg-[#1A1A1A] border border-[rgba(248,248,246,0.07)] rounded-[14px] overflow-hidden flex flex-1 min-h-[220px]"
+    >
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Смотреть кейс: ${project.title}`}
+        className="relative isolate flex min-w-0 flex-1 flex-col justify-end px-6 py-4 md:px-8 outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#3B82F6]"
+      >
+        <ImageWithFallback
+          src={project.image}
+          alt=""
+          className="absolute inset-0 -z-20 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+        />
+        <div className="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/55 to-transparent" />
+        <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
+        <p className="mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80" title={project.description}>
+          {project.description}
+        </p>
+        <p className="mt-1 text-xs text-[#f8f8f6]/90">
+          <span className="text-[#f8f8f6]/65">Роль</span> {project.role}
+        </p>
+        <div className="mt-2 flex gap-2">
+          {project.results.map(({ value, label }) => (
+            <div key={label} className="min-w-0 rounded-[10px] border border-white/15 bg-[#1A1A1A]/90 px-2 py-1">
+              <p className="text-sm font-semibold leading-4 text-[#f8f8f6]">{value}</p>
+              <p className="text-[10px] leading-3 text-[#f8f8f6]/75">{label}</p>
+            </div>
+          ))}
+        </div>
+        <span className="mt-2 text-sm font-medium text-[#f8f8f6]">Смотреть кейс ↗</span>
       </a>
     </motion.article>
   );
@@ -216,11 +242,14 @@ export function CaseStudies() {
           </ScrollReveal>
         </div>
 
-        <div className="grid items-start gap-5 md:grid-cols-2 md:gap-6">
-          <ProjectCard project={PROJECTS[0]} index={0} />
-          <div className="flex flex-col gap-5 md:gap-6">
-            {PROJECTS.slice(1).map((project, index) => (
-              <ProjectCard key={project.url} project={project} index={index + 1} />
+        {/* Layout: 1 большая карточка слева + 2 карточки друг под другом справа */}
+        <div className="flex flex-col md:flex-row gap-5 md:gap-6 md:items-stretch">
+          <div className="md:w-1/2">
+            <OnixCard />
+          </div>
+          <div className="flex flex-col gap-5 md:gap-6 md:w-1/2">
+            {DPROFILE_CASES.map((project, index) => (
+              <DprofileCaseCard key={project.url} project={project} index={index} />
             ))}
           </div>
         </div>
