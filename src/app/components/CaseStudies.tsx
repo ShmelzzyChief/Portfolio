@@ -14,6 +14,25 @@ const METRICS = [
   { value: "−80%", label: "Misclick Rate" },
 ];
 
+function ResultBadge({ value, label }: { value: string; label: string }) {
+  return (
+    <div
+      className="min-w-0 px-3 py-2 rounded-[10px]"
+      style={{
+        backgroundColor: "rgba(248,248,246,0.04)",
+        border: "1px solid rgba(248,248,246,0.07)",
+      }}
+    >
+      <p style={{ fontFamily: F, fontSize: 16, fontWeight: 600, lineHeight: 1.2, color: "#f8f8f6" }}>
+        {value}
+      </p>
+      <p style={{ fontFamily: F, fontSize: 11, letterSpacing: "0.05em", color: "rgba(248,248,246,0.35)" }}>
+        {label}
+      </p>
+    </div>
+  );
+}
+
 function OnixCard() {
   return (
     <motion.article
@@ -107,22 +126,8 @@ function OnixCard() {
 
           {/* Metrics */}
           <div className="flex gap-3 mb-8 flex-wrap">
-            {METRICS.map((m) => (
-              <div
-                key={m.label}
-                className="px-3 py-2 rounded-[10px]"
-                style={{
-                  backgroundColor: "rgba(248,248,246,0.04)",
-                  border: "1px solid rgba(248,248,246,0.07)",
-                }}
-              >
-                <p style={{ fontFamily: F, fontSize: 16, fontWeight: 600, lineHeight: 1.2, color: "#f8f8f6" }}>
-                  {m.value}
-                </p>
-                <p style={{ fontFamily: F, fontSize: 11, letterSpacing: "0.05em", color: "rgba(248,248,246,0.35)" }}>
-                  {m.label}
-                </p>
-              </div>
+            {METRICS.map(({ value, label }) => (
+              <ResultBadge key={label} value={value} label={label} />
             ))}
           </div>
 
@@ -148,7 +153,7 @@ const DPROFILE_CASES = [
   {
     title: "Drift King",
     description: "Концепт мобильного дрифт-симулятора с тюнингом, рейтингами и сезонными событиями. Проверил интерес к игре через лендинг и интервью с игроками.",
-    role: "UX/UI-дизайнер",
+    role: "Product designer",
     results: [
       { value: "647", label: "Заинтересовались за 2 недели" },
       { value: "82%", label: "Аудитория на iOS" },
@@ -198,6 +203,7 @@ function DprofileCaseCard({
           className="absolute inset-0 -z-20 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
         />
         <div className="absolute inset-0 -z-10 bg-linear-to-t from-black via-black/55 to-transparent" />
+        <div className="absolute inset-0 -z-10 bg-black opacity-0 transition-opacity duration-500 group-hover:opacity-45" />
         <h3 className="text-[20px] leading-tight text-[#f8f8f6]">{project.title}</h3>
         <p className="mt-1 line-clamp-2 text-sm leading-5 text-[#f8f8f6]/80" title={project.description}>
           {project.description}
@@ -205,15 +211,17 @@ function DprofileCaseCard({
         <p className="mt-1 text-xs text-[#f8f8f6]/90">
           <span className="text-[#f8f8f6]/65">Роль</span> {project.role}
         </p>
-        <div className="mt-2 flex gap-2">
+        <div className="mt-2 flex gap-3">
           {project.results.map(({ value, label }) => (
-            <div key={label} className="min-w-0 rounded-[10px] border border-white/15 bg-[#1A1A1A]/90 px-2 py-1">
-              <p className="text-sm font-semibold leading-4 text-[#f8f8f6]">{value}</p>
-              <p className="text-[10px] leading-3 text-[#f8f8f6]/75">{label}</p>
-            </div>
+            <ResultBadge key={label} value={value} label={label} />
           ))}
         </div>
-        <span className="mt-2 text-sm font-medium text-[#f8f8f6]">Смотреть кейс ↗</span>
+        <span
+          className="mt-3 text-sm font-medium text-[#f8f8f6]"
+          style={{ fontFamily: F, letterSpacing: "0.025em" }}
+        >
+          Смотреть кейс →
+        </span>
       </a>
     </motion.article>
   );
